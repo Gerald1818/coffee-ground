@@ -13,7 +13,7 @@ const Dashboard = () => {
         <h1>Your Daily Dose Of Coffee.</h1>
         <p className="hero-tagline">Crafted moments. Premium experiences.</p>
         <button className="hero-btn" onClick={() => window.location.href = '/services'}>
-          Book Now
+          Inquire Now
         </button>
         <button className="hero-btn2" onClick={() => window.location.href = '/about'}>
           About Us

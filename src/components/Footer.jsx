@@ -4,10 +4,10 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <div className="social-links">
-        <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
+        <a href="https://www.facebook.com/CABLOCALCAFFEINEDEALER" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/coffeegroundcabuyao?igsh=MTVubW1wYjJvaHp1Mg==" target="_blank" rel="noreferrer">Instagram</a>
       </div>
+      <p>coffeegroundcabuyao@gmail.com</p>
       <p>©2023 Coffee Ground Cabuyao. All rights reserved.</p>
     </footer>
   );
