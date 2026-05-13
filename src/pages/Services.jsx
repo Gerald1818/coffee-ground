@@ -149,7 +149,31 @@ const Services = () => {
         <div className="services-grid">
           {coffeePackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
-        <div className="divider-line"></div>
+        <section className="our-concept-section">
+        <div className="concept-banner">
+          <h2 className="concept-title">Excluded</h2>
+          
+          <div className="concept-content">
+
+            <ul className="concept-list">
+              <li>Transportation fee outside service area</li>
+              <li>Additional service hours beyond agreed schedule</li>
+            </ul>
+          </div>
+
+          <h2 className="concept-title">Add-Ons</h2>
+          <div className="concept-content">
+
+            <ul className="concept-list">
+              <li>Pastries & Snacks</li>
+              <li>Overtime service extension</li>
+              <li>Flavored Drinks</li>
+              <li>Event content coverage</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div className="divider-line"></div>
       </section>
 
       <section className="service-section">
@@ -157,7 +181,30 @@ const Services = () => {
         <div className="services-grid">
           {nachosPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
-        <div className="divider-line"></div>
+        <section className="our-concept-section">
+          <div className="concept-banner">
+            <h2 className="concept-title">Excluded</h2>
+          
+            <div className="concept-content">
+
+              <ul className="concept-list">
+                <li>Transportation fee outside service area</li>
+                <li>Additional service hours beyond agreed schedule</li>
+             </ul>
+            </div>
+
+           <h2 className="concept-title">Add-Ons</h2>
+           <div className="concept-content">
+
+             <ul className="concept-list">
+                <li>Pastries & Snacks</li>
+                <li>Overtime service extension</li>
+                <li>Event content coverage</li>
+             </ul>
+           </div>
+          </div>
+        </section>
+      <div className="divider-line"></div>
       </section>
 
       <section className="service-section">
@@ -165,6 +212,35 @@ const Services = () => {
         <div className="services-grid">
           {closedDoorPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
+
+        <section className="our-concept-section">
+          <div className="concept-banner">
+            <h2 className="concept-title">Add-Ons</h2>
+          
+            <div className="concept-content">
+
+              <ul className="concept-list">
+                <li>Grazing table</li>
+                <li>Customized decor</li>
+                <li>Dessert packages</li>
+                <li>Photo Set-up</li>
+             </ul>
+            </div>
+
+           <h2 className="concept-title">Terms & Condition</h2>
+           <div className="concept-content">
+
+             <ul className="concept-list">
+                <li>Reservation required</li>
+                <li>Excess orders beyond consumable amount will be charged separately</li>
+                <li>Extension of stay subject to availability</li>
+                <li>Outside food and drinks may require corkage fee</li>
+             </ul>
+           </div>
+          </div>
+        </section>
+        <div className="divider-line"></div>
+        
       </section>
     </div>
   );

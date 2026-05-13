@@ -112,16 +112,20 @@ const About = () => {
           <div className="mission-card">
             <h3 className="mission-vision-title">MISSION</h3>
             <p className="mission-vision-text">
-              To brew community connections through artisan craft and genuine hospitality.
+              To build a business that sustains livelihoods, uplifts communities, and fosters collaboration through food and coffee.
+              Coffee Ground is a space where passion meets purpose, and where every cup supports a greater cause.
             </p>
           </div>
           <div className="vision-card">
             <h3 className="mission-vision-title">VISION</h3>
             <p className="mission-vision-text">
-              To be Cabuyao's favorite caffeine dealer and the most welcoming safe space.
+              To become a top cofee chain in the Philippines, driven by quality, culture, and community.
+              Within the next 10 years, we aim to grow Coffee Ground into a premier franchise brand recognized for excellence, authenticity, and heart.
             </p>
           </div>
+          
         </div>
+        
       </section>
 
       {/* LOCATION MAP SECTION */}
@@ -143,6 +147,22 @@ const About = () => {
             <p className="address-text">📍 Coffee Ground Cabuyao</p>
             <p className="address-subtext">74CF+8FQ, Cabuyao City, Laguna, Philippines</p>
             <p className="coordinates-text">Coordinates: 14.2750°N, 121.1180°E</p>
+          </div>
+        </div>
+      </section>
+        {/* OUR Values */}
+      <section className="our-concept-section">
+        <div className="concept-banner">
+          <h2 className="concept-title">Our values</h2>
+          
+          <div className="concept-content">
+
+            <ul className="concept-list">
+              <li>Authenticity - True to our roots, proud of our story</li>
+              <li>Collaboration - Built through teamwork and shared passion</li>
+              <li>Sustainability - Supporting local producers and responsible practices</li>
+              <li>Community - Coffee Ground is your home away from home</li>
+            </ul>
           </div>
         </div>
       </section>
