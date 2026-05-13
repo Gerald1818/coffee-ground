@@ -83,7 +83,7 @@ const Services = () => {
       duration: "3-4 hours",
       desc: "A sophisticated selection that features a wider variety of drinks and custom details to create a more personal touch.",
       features: ["100-150 cups", "3 Types of Signature Drinks", "Customized Cups", "Theme Customization", "2 Skilled Barista"],
-      isPopular: true,
+      isPopular: false,
       particles: ['☕', '🧊', '☕', '🧊', '☕', '🧊'],
       particleClass: 'coffee-bean'
     },
@@ -93,7 +93,7 @@ const Services = () => {
       duration: "3-4 hours",
       desc: "The complete luxury experience for large celebrations, providing the finest ingredients and a full range of grand services.",
       features: ["200-300 cups", "3 Types of Signature Drinks", "Customized Cups", "Premium Beans/Syrup", "Higher-End Decoration", "Theme Customization", "2 skilled baristas"],
-      isPopular: false,
+      isPopular: true,
       particles: ['☕', '🧊', '☕', '🧊', '☕', '🧊'],
       particleClass: 'coffee-bean'
     }
