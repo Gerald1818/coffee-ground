@@ -1467,4 +1467,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .team-role {
     font-size: 0.75rem;
   }
+  .App-logo {
+  border-radius: 50%; /* This makes a square image perfectly circular */
+  border: 2px solid #61dafb; /* Optional: adds a colored ring around it */
+}
 }

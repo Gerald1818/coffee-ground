@@ -125,10 +125,10 @@ const Services = () => {
   const closedDoorPackages = [
     {
       title: "Closed Door Event",
-      price: "₱35,000",
+      price: "₱3,500",
       duration: "Full Event",
       desc: "An exclusive private experience that provides full use of the space, offering a quiet and professional setting for special gatherings and focused events.",
-      features: ["Ideal for meetings, Intimate Gatherings", "Choice of Meal Selection", "Exclusive Use of the Space", "Wi-Fi Access"],
+      features: ["Ideal for meetings & Intimate Gatherings", "Choice of Meal Selection", "Exclusive Use of the Space", "Wi-Fi Access"],
       isPopular: false,
       particles: ['🎉', '🎊', '🎉', '🎊', '🎉', '🎊'],
       particleClass: 'note'
@@ -157,7 +157,7 @@ const Services = () => {
 
             <ul className="concept-list">
               <li>Transportation fee outside service area</li>
-              <li>Additional service hours beyond agreed schedule</li>
+              <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
             </ul>
           </div>
 
@@ -189,7 +189,7 @@ const Services = () => {
 
               <ul className="concept-list">
                 <li>Transportation fee outside service area</li>
-                <li>Additional service hours beyond agreed schedule</li>
+                <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
              </ul>
             </div>
 
@@ -223,7 +223,7 @@ const Services = () => {
                 <li>Grazing table</li>
                 <li>Customized decor</li>
                 <li>Dessert packages</li>
-                <li>Photo Set-up</li>
+                <li style={{ marginBottom: '20px' }}>Photo Set-up</li>
              </ul>
             </div>
 
