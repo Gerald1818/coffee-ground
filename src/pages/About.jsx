@@ -1,10 +1,13 @@
 import React from 'react';
+import aboutBg from '../assets/about-bg.png';
 
 const About = () => {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.6979224355373!2d121.1211554751705!3d14.270830885065191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d9bc2c409f37%3A0x94512c7c2e33ff53!2sCOFFEE%20GROUND%20Cabuyao!5e0!3m2!1sen!2sph!4v1778590775509!5m2!1sen!2sph";
 
   return (
-    <div className="about-page">
+    <div className="about-page"style={{ 
+        backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.9), rgba(26, 15, 10, 0.9)), url(${aboutBg})` 
+      }}>
       {/* HEADER SECTION */}
       <div className="about-header-section">
         <h1 className="about-hero-title">About Us</h1>
@@ -34,6 +37,27 @@ const About = () => {
               <div className="team-member">
                 <p><strong>Angelo Oraa</strong></p>
                 <p className="team-role">Coffee Consultant, Head Barista, Customer Service Trainer & Marketing Lead</p>
+              </div>
+            </div>
+          </div>
+          <div className="core-team-section">
+            <h4 className="team-title">Employees</h4>
+            <div className="team-members">
+              <div className="team-member">
+                <p><strong>April Rose Oraa</strong></p>
+                <p className="team-role">Supervisor</p>
+              </div>
+              <div className="team-member">
+                <p><strong>Jane Kathleen Palermo</strong></p>
+                <p className="team-role">Barista/Kitchen Staff</p>
+              </div>
+              <div className="team-member">
+                <p><strong>Dave Martin Constantino</strong></p>
+                <p className="team-role">Kitchen Staff</p>
+              </div>
+              <div className="team-member">
+                <p><strong>Rhon Christopher Balubar</strong></p>
+                <p className="team-role">Kitchen Staff</p>
               </div>
             </div>
           </div>
@@ -68,7 +92,7 @@ const About = () => {
           
           <div className="concept-content">
             <p className="concept-intro">
-              At Coffee Ground, we serve more than just coffee—we serve <strong>connection</strong>.
+              At Coffee Ground, we serve more than just coffee, we serve connection.
             </p>
             <p className="concept-highlight">Our offerings highlight:</p>
 

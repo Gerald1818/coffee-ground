@@ -285,12 +285,16 @@ h1, h2, h3, h4, .logo {
    PAGE LAYOUT (About / Services)
 ──────────────────────────────────────────── */
 .services-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 140px 5% 100px;
+  /* These ensure the image behaves correctly since the URL is in the JSX */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  /* Other styles */
   min-height: 100vh;
-  position: relative;
+  width: 100%;
+  padding: 140px 5% 100px;
 }
 
 /* subtle warm vignette overlay for inner pages */
@@ -309,7 +313,9 @@ h1, h2, h3, h4, .logo {
 
 .services-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Typography helpers ── */
@@ -365,6 +371,14 @@ h1, h2, h3, h4, .logo {
   background-image:
     radial-gradient(ellipse 80% 60% at 50% -10%, rgba(92, 52, 32, 0.45) 0%, transparent 70%);
   padding-top: 80px;
+
+  /* Background setup */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  overflow-x: hidden;
 }
 
 /* Header Section */
@@ -398,7 +412,8 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 2.5rem;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
+  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
+  color: white;
 }
 
 .section-subtitle {
@@ -493,7 +508,8 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 3rem;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
+  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
+  color: white;
 }
 
 .section-title {
@@ -528,7 +544,9 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-banner {
-  background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
+  background: var(--glass-warm);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 3.5rem;
   box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
@@ -539,10 +557,10 @@ h1, h2, h3, h4, .logo {
 .concept-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: var(--espresso);
   letter-spacing: 3px;
   margin-bottom: 2rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
 }
 
 .concept-content {
@@ -550,12 +568,13 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-intro {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--espresso);
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-main);
   margin-bottom: 1rem;
-  font-weight: 500;
 }
+
 
 .concept-intro strong {
   font-weight: 700;
@@ -563,11 +582,11 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-highlight {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--espresso);
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-main);
   margin-bottom: 1.5rem;
-  font-weight: 600;
 }
 
 .concept-list {
@@ -581,12 +600,12 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-list li {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--espresso);
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-main);
   padding-left: 2rem;
   position: relative;
-  font-weight: 400;
 }
 
 .concept-list li::before {
@@ -618,7 +637,8 @@ h1, h2, h3, h4, .logo {
   border-radius: 28px;
   padding: 2.5rem;
   text-align: center;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
+  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
+  color: white;
   transition: all 0.4s ease;
 }
 
@@ -778,24 +798,39 @@ h1, h2, h3, h4, .logo {
 
 /* popular badge */
 .pricing-badge {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  
+  /* This kills the shifting issue */
+  transform: none !important; 
+  
+  /* Layout */
+  display: block;
+  text-align: center;
+  padding: 0.6rem 0;
+  z-index: 20;
+
+  /* Visuals */
   background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
   color: var(--espresso);
-  padding: 0.45rem 1.8rem;
-  border-radius: 0 0 20px 20px;
+  border-radius: 15px 15px 0 0; /* Match your card's top roundness */
+  
+  /* Typography */
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateX(-50%) translateY(-100%);
-  transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
-  pointer-events: none;
-  z-index: 20;
+  opacity: 1 !important;
+}
+
+.pricing-card {
+  position: relative;
+  overflow: hidden;
+  padding-top: 3.5rem; 
 }
 
 .service-card.popular .pricing-badge {
