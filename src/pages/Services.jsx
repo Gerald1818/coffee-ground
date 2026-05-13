@@ -57,7 +57,7 @@ const ServiceCard = ({ pkg }) => (
       </div>
 
       <button className="service-select-btn">
-        <a href="https://www.google.com" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        <a href="https://forms.gle/M37WwbdQR7uymMtD9" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
           Inquire Now
         </a>
       </button>
