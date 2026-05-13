@@ -79,7 +79,7 @@ const About = () => {
             </p>
 
             <p>
-              Taking the reins as full operational barista trainer and customer experience is Angelo Grao, a passionate coffee consultant who also leads the brand's marketing and strategic development.
+              Taking the reins as full operational barista trainer and customer experience is Angelo Oraa, a passionate coffee consultant who also leads the brand's marketing and strategic development.
             </p>
           </div>
         </div>
