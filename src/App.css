@@ -101,6 +101,46 @@ h1, h2, h3, h4, .logo {
   border-bottom: 1px solid var(--glass-border);
   transition: all 0.3s ease;
 }
+/* Base styles for the nav items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--parchment); /* Using your defined color variable */
+  transition: color 0.3s ease;
+}
+
+/* Hide icons on desktop by default */
+.nav-icon {
+  display: none;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 5%; /* Less padding on mobile */
+  }
+
+  .logo {
+    font-size: 1.1rem; /* Smaller logo for more space */
+  }
+
+  .nav-links {
+    gap: 1.5rem; /* Space between icons */
+  }
+
+  /* Hide the text labels */
+  .nav-text {
+    display: none;
+  }
+
+  /* Show the icons */
+  .nav-icon {
+    display: block;
+    color: var(--caramel); /* Highlighting the icons with your accent color */
+  }
+}
 
 .logo {
   font-weight: 700;
@@ -1264,7 +1304,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    RESPONSIVE
 ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* ... existing navbar/hero responsive styles ... */
 
   /* Force cards to stack vertically on tablets and mobile */
   .services-grid {
@@ -1277,8 +1316,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     min-height: auto;
     max-width: 100%; /* Allow it to take full width of mobile screen minus padding */
   }
-
-  /* ... rest of your tablet media queries ... */
 }
 
 @media (max-width: 480px) {
