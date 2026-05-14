@@ -282,52 +282,58 @@ h1, h2, h3, h4, .logo {
 }
 
 /* ────────────────────────────────────────────
-   PAGE LAYOUT (About / Services)
+   BACKGROUND LAYOUT COMPONENT
 ──────────────────────────────────────────── */
-.services-page {
-  /* These ensure the image behaves correctly since the URL is in the JSX */
+.background-layout {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  
-  /* Other styles */
-  min-height: 100vh;
-  width: 100%;
-  padding: 140px 5% 100px;
 }
 
-/* subtle warm vignette overlay for inner pages */
-.services-page::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 0%,   rgba(92, 52, 32, 0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 10% 90%,  rgba(61, 35, 20, 0.30) 0%, transparent 55%);
-  z-index: 0;
+/* Desktop: Fixed background for parallax effect */
+@media (min-width: 1025px) {
+  .background-layout {
+    backgroundAttachment: fixed;
+  }
 }
 
-.services-page > * { position: relative; z-index: 1; }
+/* Tablet: Scroll background to prevent zoom */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .background-layout {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* Mobile: Optimized for mobile devices - NO ZOOM */
+@media (max-width: 768px) {
+  .background-layout {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    width: 100%;
+  }
+}
 
 .services-header {
   text-align: center;
-  margin-bottom: 4rem;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 3rem;
 }
 
 /* ── Typography helpers ── */
 .about-title {
-  font-family: var(--font-editorial);
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-style: italic;
-  font-weight: 300;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
   color: var(--linen);
-  letter-spacing: 3px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  margin-bottom: 0;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 
 .about-subtitle {
@@ -335,7 +341,7 @@ h1, h2, h3, h4, .logo {
   font-style: italic;
   font-size: 1.05rem;
   font-weight: 300;
-  color: var(--linen);
+  color: var(--caramel);
   margin-top: 0.4rem;
   opacity: 0.85;
   letter-spacing: 0.5px;
@@ -365,22 +371,33 @@ h1, h2, h3, h4, .logo {
 .ornament::after { transform: scaleX(-1); }
 
 /* ────────────────────────────────────────────
-   ABOUT PAGE STYLING
+   SERVICES PAGE
+──────────────────────────────────────────── */
+.services-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 140px 5% 100px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.services-page > * { position: relative; z-index: 1; }
+
+/* ────────────────────────────────────────────
+   ABOUT PAGE
 ──────────────────────────────────────────── */
 .about-page {
   min-height: 100vh;
-  background-color: var(--espresso);
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(92, 52, 32, 0.45) 0%, transparent 70%);
   padding-top: 80px;
+  position: relative;
+  z-index: 1;
+}
 
-  /* Background setup */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  
-  overflow-x: hidden;
+.about-page > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Header Section */
@@ -395,7 +412,7 @@ h1, h2, h3, h4, .logo {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-style: italic;
   font-weight: 300;
-  color: var(--linen);
+  color: var(--caramel);
   letter-spacing: 3px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   margin-bottom: 0;
@@ -414,8 +431,7 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 2.5rem;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
 }
 
 .section-subtitle {
@@ -510,8 +526,7 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 3rem;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
 }
 
 .section-title {
@@ -546,9 +561,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-banner {
-  background: var(--glass-warm);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
   border-radius: 28px;
   padding: 3.5rem;
   box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
@@ -559,10 +572,10 @@ h1, h2, h3, h4, .logo {
 .concept-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--espresso);
   letter-spacing: 3px;
   margin-bottom: 2rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: var(--text-main);
 }
 
 .concept-content {
@@ -570,13 +583,12 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-intro {
-  font-family: var(--font-editorial);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--espresso);
   margin-bottom: 1rem;
+  font-weight: 500;
 }
-
 
 .concept-intro strong {
   font-weight: 700;
@@ -584,11 +596,11 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-highlight {
-  font-family: var(--font-editorial);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--espresso);
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .concept-list {
@@ -602,12 +614,12 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-list li {
-  font-family: var(--font-editorial);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--espresso);
   padding-left: 2rem;
   position: relative;
+  font-weight: 400;
 }
 
 .concept-list li::before {
@@ -639,8 +651,7 @@ h1, h2, h3, h4, .logo {
   border-radius: 28px;
   padding: 2.5rem;
   text-align: center;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
   transition: all 0.4s ease;
 }
 
@@ -734,6 +745,28 @@ h1, h2, h3, h4, .logo {
   box-sizing: border-box;
 }
 
+/* Special handling for single card (Closed Door) */
+.services-grid:has(.service-card:nth-child(1):last-child) {
+  grid-template-columns: minmax(280px, 600px);
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Make single card take up space */
+.services-grid:has(.service-card:nth-child(1):last-child) .service-card {
+  width: 100%;
+}
+
+/* For 2 cards layout */
+.services-grid:has(.service-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+}
+
+/* For 3+ cards layout */
+.services-grid:has(.service-card:nth-child(3)) {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
 /* ────────────────────────────────────────────
    SERVICE PRICING CARDS
 ──────────────────────────────────────────── */
@@ -800,39 +833,24 @@ h1, h2, h3, h4, .logo {
 
 /* popular badge */
 .pricing-badge {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  
-  /* This kills the shifting issue */
-  transform: none !important; 
-  
-  /* Layout */
-  display: block;
-  text-align: center;
-  padding: 0.6rem 0;
-  z-index: 20;
-
-  /* Visuals */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
   color: var(--espresso);
-  border-radius: 15px 15px 0 0; /* Match your card's top roundness */
-  
-  /* Typography */
+  padding: 0.45rem 1.8rem;
+  border-radius: 0 0 20px 20px;
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 1 !important;
-}
-
-.pricing-card {
-  position: relative;
-  overflow: hidden;
-  padding-top: 3.5rem; 
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%);
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+  pointer-events: none;
+  z-index: 20;
 }
 
 .service-card.popular .pricing-badge {
@@ -1467,8 +1485,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .team-role {
     font-size: 0.75rem;
   }
-  .icon-logo {
-  border-radius: 100%; /* This makes a square image perfectly circular */
-  border: 2px solid #61dafb; /* Optional: adds a colored ring around it */
-}
 }

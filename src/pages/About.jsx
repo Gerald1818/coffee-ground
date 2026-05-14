@@ -1,7 +1,7 @@
 import React from 'react';
 import ConceptSection from '../components/ConceptSection';
 import BackgroundLayout from '../components/BackgroundLayout';
-import aboutBg from '../assets/about-bg.png';
+import bgImage from '../assets/about-bg.png';
 
 const About = () => {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.6979224355373!2d121.1211554751705!3d14.270830885065191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d9bc2c409f37%3A0x94512c7c2e33ff53!2sCOFFEE%20GROUND%20Cabuyao!5e0!3m2!1sen!2sph!4v1778590775509!5m2!1sen!2sph";
@@ -60,7 +60,7 @@ const About = () => {
   ];
 
   return (
-    <BackgroundLayout backgroundImage={aboutBg}>
+    <BackgroundLayout backgroundImage={bgImage}>
       <div className="about-page">
         {/* Header Section */}
         <div className="about-header-section">
