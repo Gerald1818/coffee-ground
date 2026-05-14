@@ -127,6 +127,22 @@ const About = () => {
         </div>
         
       </section>
+      {/* OUR Values */}
+      <section className="our-concept-section">
+        <div className="concept-banner">
+          <h2 className="concept-title">Our values</h2>
+          
+          <div className="concept-content">
+
+            <ul className="concept-list">
+              <li>Authenticity - True to our roots, proud of our story</li>
+              <li>Collaboration - Built through teamwork and shared passion</li>
+              <li>Sustainability - Supporting local producers and responsible practices</li>
+              <li>Community - Coffee Ground is your home away from home</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* LOCATION MAP SECTION */}
       <section className="location-section">
@@ -144,25 +160,9 @@ const About = () => {
           </div>
 
           <div className="location-info">
-            <p className="address-text">📍 Coffee Ground Cabuyao</p>
+            <p className="address-text">📍<a href="https://maps.app.goo.gl/Ud1MGwd7xxaYoQ7VA">Coffee Ground Cabuyao</a></p>
             <p className="address-subtext">74CF+8FQ, Cabuyao City, Laguna, Philippines</p>
             <p className="coordinates-text">Coordinates: 14.2750°N, 121.1180°E</p>
-          </div>
-        </div>
-      </section>
-        {/* OUR Values */}
-      <section className="our-concept-section">
-        <div className="concept-banner">
-          <h2 className="concept-title">Our values</h2>
-          
-          <div className="concept-content">
-
-            <ul className="concept-list">
-              <li>Authenticity - True to our roots, proud of our story</li>
-              <li>Collaboration - Built through teamwork and shared passion</li>
-              <li>Sustainability - Supporting local producers and responsible practices</li>
-              <li>Community - Coffee Ground is your home away from home</li>
-            </ul>
           </div>
         </div>
       </section>
