@@ -4,16 +4,6 @@ import ConceptSection from '../components/ConceptSection';
 import BackgroundLayout from '../components/BackgroundLayout';
 import bgImage from '../assets/service-bg.png';
 
-/**
- * Services Page Component
- * Displays three service categories: Coffee Booth, Nacho Bar, Closed-Door Event
- * Each category includes: package cards, excluded items, and add-ons
- * 
- * Uses reusable components:
- * - ServiceCard: Individual package card
- * - ConceptSection: Excluded/Add-ons/Terms sections
- * - BackgroundLayout: Responsive background image wrapper
- */
 const Services = () => {
   // ── Coffee Packages Data ──
   const coffeePackages = [

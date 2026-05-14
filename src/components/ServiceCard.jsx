@@ -1,22 +1,5 @@
 import React from 'react';
 
-/**
- * ServiceCard Component
- * Reusable card component for displaying service packages
- * Handles particle effects, badges, pricing, and features
- * 
- * Props:
- * - pkg: Object containing package data
- *   - title: string
- *   - price: string (e.g., "₱7,000")
- *   - duration: string (e.g., "3-4 hours")
- *   - desc: string (package description)
- *   - features: array of strings
- *   - particles: array of emojis
- *   - particleClass: string (css class for animation)
- *   - isPopular: boolean
- *   - badge: string (optional badge text)
- */
 const ServiceCard = ({ pkg }) => (
   <div className={`service-card ${pkg.isPopular ? 'popular' : ''}`}>
     {/* Particle Effect Layer - Background animations */}
