@@ -558,24 +558,27 @@ h1, h2, h3, h4, .logo {
   padding: 3rem 5%;
   max-width: 1000px;
   margin: 2rem auto;
+  box-sizing: border-box;
 }
 
 .concept-banner {
-  background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
+  background: var(--glass-warm);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
   border-radius: 28px;
-  padding: 3.5rem;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  padding: 3rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
   text-align: center;
+  color: var(--text-main);
 }
 
 .concept-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: var(--espresso);
+  color: var(--linen);
   letter-spacing: 3px;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .concept-content {
@@ -585,20 +588,20 @@ h1, h2, h3, h4, .logo {
 .concept-intro {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: var(--espresso);
+  color: var(--text-main);
   margin-bottom: 1rem;
   font-weight: 500;
 }
 
 .concept-intro strong {
   font-weight: 700;
-  text-decoration: underline;
+  color: var(--caramel);
 }
 
 .concept-highlight {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--espresso);
+  color: var(--text-main);
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
@@ -616,10 +619,11 @@ h1, h2, h3, h4, .logo {
 .concept-list li {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--espresso);
+  color: var(--text-main);
   padding-left: 2rem;
   position: relative;
   font-weight: 400;
+  line-height: 1.6;
 }
 
 .concept-list li::before {
@@ -628,6 +632,7 @@ h1, h2, h3, h4, .logo {
   left: 0;
   font-weight: 700;
   font-size: 1.1rem;
+  color: var(--caramel);
 }
 
 /* Mission & Vision Section */
@@ -722,6 +727,7 @@ h1, h2, h3, h4, .logo {
 ──────────────────────────────────────────── */
 .service-section {
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .section-subtitle {
@@ -741,7 +747,7 @@ h1, h2, h3, h4, .logo {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto 2rem;
-  padding: 0 5%;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
@@ -1379,16 +1385,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 5%;
+    padding: 0 16px;
+    max-width: 100%;
   }
 
   .service-card {
     min-height: auto;
+    padding: 2rem 1.5rem;
   }
 
   .section-subtitle {
     font-size: 1.2rem;
     margin: 2rem 0 1.5rem;
+    padding: 0 16px;
   }
 
   .package-title {
@@ -1416,6 +1425,43 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .service-select-btn {
     padding: 0.7rem 1.5rem;
     font-size: 0.75rem;
+  }
+
+  .services-page {
+    padding: 140px 0 100px;
+  }
+
+  /* Fix our-concept-section (Excluded/Add-Ons) padding */
+  .our-concept-section {
+    padding: 2rem 16px;
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  .concept-banner {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .concept-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .concept-list li {
+    font-size: 0.9rem;
+  }
+
+  /* Fix divider line width on mobile */
+  .divider-line {
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  /* Ensure service-section spans full width */
+  .service-section {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
   /* About Page Mobile */
