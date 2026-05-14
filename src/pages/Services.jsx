@@ -1,71 +1,21 @@
 import React from 'react';
-import '../App.css';
+import ServiceCard from '../components/ServiceCard';
+import ConceptSection from '../components/ConceptSection';
+import BackgroundLayout from '../components/BackgroundLayout';
 import bgImage from '../assets/service-bg.png';
 
-// Reusable Card Component
-const ServiceCard = ({ pkg }) => (
-  <div className={`service-card ${pkg.isPopular ? 'popular' : ''}`}>
-    {/* Particle Effect Layer */}
-    {pkg.particles.length > 0 && (
-      <div className="particle-container">
-        {pkg.particles.map((particle, pIdx) => (
-          <div
-            key={pIdx}
-            className={`particle ${pkg.particleClass}`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * -50}px`,
-              animationDelay: `${pIdx * 0.4}s`
-            }}
-          >
-            {particle}
-          </div>
-        ))}
-      </div>
-    )}
-
-    {/* Badge positioned at the very top of the card */}
-    {pkg.isPopular && (
-      <div className="pricing-badge">
-        <span className="badge-icon">✨</span>
-        MOST POPULAR
-        <span className="badge-icon">✨</span>
-      </div>
-    )}
-
-    <div className="card-content">
-      <div className="pricing-header">
-        <div className="service-badge-pill" style={{ marginBottom: '1rem', display: pkg.badge ? 'inline-block' : 'none' }}>
-          {pkg.badge}
-        </div>
-        <h1 className="package-title">{pkg.title}</h1>
-        <h3 className="starts-at">Starts at</h3>
-        <div className="pricing-amount">
-          <span className="price-tag">{pkg.price}</span>
-        </div>
-        <p className="price-period">{pkg.duration}</p>
-        <p className="package-desc">{pkg.desc}</p>
-      </div>
-
-      <div className="features-list">
-        {pkg.features.map((feature, idx) => (
-          <div key={idx} className="feature-item">
-            <span className="feature-checkmark">✓</span>
-            <span className="feature-text">{feature}</span>
-          </div>
-        ))}
-      </div>
-
-      <button className="service-select-btn">
-        <a href="https://forms.gle/M37WwbdQR7uymMtD9" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-          Inquire Now
-        </a>
-      </button>
-    </div>
-  </div>
-);
-
+/**
+ * Services Page Component
+ * Displays three service categories: Coffee Booth, Nacho Bar, Closed-Door Event
+ * Each category includes: package cards, excluded items, and add-ons
+ * 
+ * Uses reusable components:
+ * - ServiceCard: Individual package card
+ * - ConceptSection: Excluded/Add-ons/Terms sections
+ * - BackgroundLayout: Responsive background image wrapper
+ */
 const Services = () => {
+  // ── Coffee Packages Data ──
   const coffeePackages = [
     {
       title: "Package 1",
@@ -99,6 +49,7 @@ const Services = () => {
     }
   ];
 
+  // ── Nacho Packages Data ──
   const nachosPackages = [
     {
       title: "Package 1",
@@ -122,6 +73,7 @@ const Services = () => {
     }
   ];
 
+  // ── Closed Door Packages Data ──
   const closedDoorPackages = [
     {
       title: "Closed Door Event",
@@ -135,114 +87,93 @@ const Services = () => {
     }
   ];
 
-  return (
-    <div className="services-page "style={{ 
-        backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.8), rgba(26, 15, 10, 0.8)), url(${bgImage})` 
-      }}>
-      <div className="services-header">
-        <h2 className="about-title">Our Services</h2>
-        <p className="about-subtitle">Tailored luxury for your special moments.</p>
+  // ── Concept Sections Data (Reusable for all categories) ──
+  const coffeeConceptSections = [
+    {
+      title: "Excluded",
+      items: ["Transportation fee outside service area", "Additional service hours beyond agreed schedule"],
+      bottomMargin: true
+    },
+    {
+      title: "Add-Ons",
+      items: ["Pastries & Snacks", "Overtime service extension", "Flavored Drinks", "Event content coverage"]
+    }
+  ];
+
+  const nachosConceptSections = [
+    {
+      title: "Excluded",
+      items: ["Transportation fee outside service area", "Additional service hours beyond agreed schedule"],
+      bottomMargin: true
+    },
+    {
+      title: "Add-Ons",
+      items: ["Pastries & Snacks", "Overtime service extension", "Event content coverage"]
+    }
+  ];
+
+  const closedDoorConceptSections = [
+    {
+      title: "Add-Ons",
+      items: ["Grazing table", "Customized decor", "Dessert packages", "Photo Set-up"],
+      bottomMargin: true
+    },
+    {
+      title: "Terms & Condition",
+      items: [
+        "Reservation required",
+        "Excess orders beyond consumable amount will be charged separately",
+        "Extension of stay subject to availability",
+        "Outside food and drinks may require corkage fee"
+      ]
+    }
+  ];
+
+  // ── Service Section Component (DRY principle) ──
+  const ServiceSection = ({ title, packages, conceptSections }) => (
+    <section className="service-section">
+      <h3 className="section-subtitle">{title}</h3>
+      <div className="services-grid">
+        {packages.map((pkg, i) => (
+          <ServiceCard key={i} pkg={pkg} />
+        ))}
       </div>
-
-      <section className="service-section">
-        <h3 className="section-subtitle">Coffee Booth</h3>
-        <div className="services-grid">
-          {coffeePackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
-        </div>
-        <section className="our-concept-section">
-        <div className="concept-banner">
-          <h2 className="concept-title">Excluded</h2>
-          
-          <div className="concept-content">
-
-            <ul className="concept-list">
-              <li>Transportation fee outside service area</li>
-              <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
-            </ul>
-          </div>
-
-          <h2 className="concept-title">Add-Ons</h2>
-          <div className="concept-content">
-
-            <ul className="concept-list">
-              <li>Pastries & Snacks</li>
-              <li>Overtime service extension</li>
-              <li>Flavored Drinks</li>
-              <li>Event content coverage</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <ConceptSection sections={conceptSections} />
       <div className="divider-line"></div>
-      </section>
+    </section>
+  );
 
-      <section className="service-section">
-        <h3 className="section-subtitle">Nacho Bar</h3>
-        <div className="services-grid">
-          {nachosPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
-        </div>
-        <section className="our-concept-section">
-          <div className="concept-banner">
-            <h2 className="concept-title">Excluded</h2>
-          
-            <div className="concept-content">
-
-              <ul className="concept-list">
-                <li>Transportation fee outside service area</li>
-                <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
-             </ul>
-            </div>
-
-           <h2 className="concept-title">Add-Ons</h2>
-           <div className="concept-content">
-
-             <ul className="concept-list">
-                <li>Pastries & Snacks</li>
-                <li>Overtime service extension</li>
-                <li>Event content coverage</li>
-             </ul>
-           </div>
-          </div>
-        </section>
-      <div className="divider-line"></div>
-      </section>
-
-      <section className="service-section">
-        <h3 className="section-subtitle">Closed-Door Event</h3>
-        <div className="services-grid">
-          {closedDoorPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
+  return (
+    <BackgroundLayout backgroundImage={bgImage}>
+      <div className="services-page">
+        {/* Header */}
+        <div className="services-header">
+          <h2 className="about-title">Our Services</h2>
+          <p className="about-subtitle">Tailored luxury for your special moments.</p>
         </div>
 
-        <section className="our-concept-section">
-          <div className="concept-banner">
-            <h2 className="concept-title">Add-Ons</h2>
-          
-            <div className="concept-content">
+        {/* Coffee Booth Section */}
+        <ServiceSection
+          title="Coffee Booth"
+          packages={coffeePackages}
+          conceptSections={coffeeConceptSections}
+        />
 
-              <ul className="concept-list">
-                <li>Grazing table</li>
-                <li>Customized decor</li>
-                <li>Dessert packages</li>
-                <li style={{ marginBottom: '20px' }}>Photo Set-up</li>
-             </ul>
-            </div>
+        {/* Nacho Bar Section */}
+        <ServiceSection
+          title="Nacho Bar"
+          packages={nachosPackages}
+          conceptSections={nachosConceptSections}
+        />
 
-           <h2 className="concept-title">Terms & Condition</h2>
-           <div className="concept-content">
-
-             <ul className="concept-list">
-                <li>Reservation required</li>
-                <li>Excess orders beyond consumable amount will be charged separately</li>
-                <li>Extension of stay subject to availability</li>
-                <li>Outside food and drinks may require corkage fee</li>
-             </ul>
-           </div>
-          </div>
-        </section>
-        <div className="divider-line"></div>
-        
-      </section>
-    </div>
+        {/* Closed-Door Event Section */}
+        <ServiceSection
+          title="Closed-Door Event"
+          packages={closedDoorPackages}
+          conceptSections={closedDoorConceptSections}
+        />
+      </div>
+    </BackgroundLayout>
   );
 };
 
