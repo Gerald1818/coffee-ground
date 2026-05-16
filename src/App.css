@@ -737,7 +737,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .divider-line {
-  width: 60%;
+  width: 80%;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--caramel), transparent);
   margin: 2rem auto;
@@ -1065,6 +1065,8 @@ h1, h2, h3, h4, .logo {
   display: flex;
   flex-direction: column;
   min-height: 600px;
+  margin: 0 auto;
+  max-width: 500px;
 }
 
 /* Particle container for falling items */
