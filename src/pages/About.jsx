@@ -1,17 +1,22 @@
 import React from 'react';
 import aboutBg from '../assets/about-bg.png';
+import menuImage from '../assets/brand-header.png';
 
 const About = () => {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.6979224355373!2d121.1211554751705!3d14.270830885065191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d9bc2c409f37%3A0x94512c7c2e33ff53!2sCOFFEE%20GROUND%20Cabuyao!5e0!3m2!1sen!2sph!4v1778590775509!5m2!1sen!2sph";
 
   return (
-    <div className="about-page"style={{ 
+    <div className="about-page" style={{ 
         backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.9), rgba(26, 15, 10, 0.9)), url(${aboutBg})` 
       }}>
+      <img 
+        src={menuImage} 
+        alt="Coffee Ground Menu" 
+        className="about-header-asset" 
+      />
 
       {/* WHO WE ARE SECTION */}
       <section className="who-we-are-section">
-         <h3 className="coffee-ground-subtitle">Coffee Ground</h3>
         <div className="who-we-are-container">
           <h2 className="section-title">Who We Are</h2>
           

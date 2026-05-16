@@ -37,6 +37,8 @@
   /* ── Glow ── */
   --glow-caramel:   rgba(200, 135, 63, 0.22);
   --glow-copper:    rgba(181, 98, 46, 0.28);
+  /* dynamic navbar height used to offset fixed navbar for page content */
+  --navbar-height: 80px;
 }
 
 /* ────────────────────────────────────────────
@@ -221,6 +223,61 @@ h1, h2, h3, h4, .logo {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--caramel), transparent);
   opacity: 0.6;
+}
+
+/* About header image container */
+.about-header-image {
+  background: var(--glass-warm);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  padding: 1rem;
+  margin: calc(var(--navbar-height) + 1rem) auto 40px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
+  overflow: hidden;
+}
+
+.about-header-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+}
+
+.about-header-asset {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: -150px;
+  width: 90%;
+  max-width: 300px;
+}
+
+/* Ensure About page content sits below the fixed navbar */
+.about-page {
+  padding-top: calc(var(--navbar-height) + 0.5rem);
+}
+
+@media (max-width: 768px) {
+  :root { --navbar-height: 120px; }
+}
+
+@media (max-width: 480px) {
+  :root { --navbar-height: 140px; }
+}
+
+@media (max-width: 480px) {
+  .about-header-image {
+    margin: 8px auto 16px;
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .about-header-image img {
+    border-radius: 12px;
+  }
 }
 
 .hero-text h1 {
