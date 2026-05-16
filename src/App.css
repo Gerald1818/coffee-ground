@@ -372,7 +372,7 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 2.5rem;
-  margin-top: 1rem;
+  margin-top: 5rem;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.50);
   width: 100%;
   max-width: 900px;
