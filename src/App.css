@@ -102,6 +102,7 @@ h1, h2, h3, h4, .logo {
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   transition: all 0.3s ease;
+  
 }
 
 .logo {
@@ -341,6 +342,13 @@ h1, h2, h3, h4, .logo {
   transform: translateY(-2px);
   box-shadow: 0 10px 35px rgba(181, 98, 46, 0.55);
   animation: pulse 1.2s infinite;
+    background: linear-gradient(
+    105deg,
+    var(--linen) 0%,
+    var(--caramel) 45%,
+    var(--linen) 100%
+  );
+  animation: shimmer 4s linear infinite;
 }
 
 .hero-btn2:hover {
@@ -407,7 +415,7 @@ h1, h2, h3, h4, .logo {
 
 .menu-image-scroll-box {
   width: 100%;
-  max-height: 800px;
+  max-height: 1100px;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -802,6 +810,8 @@ h1, h2, h3, h4, .logo {
   border-radius: 28px;
   padding: 3rem;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .section-title {
@@ -826,6 +836,7 @@ h1, h2, h3, h4, .logo {
   color: var(--text-main);
   line-height: 1.9;
   text-align: justify;
+  margin-top: -10px;
 }
 
 /* Our Concept Section */
@@ -868,6 +879,7 @@ h1, h2, h3, h4, .logo {
   color: var(--text-main);
   margin-bottom: 1rem;
   font-weight: 500;
+  margin-top: -10px;
 }
 
 .concept-intro strong {
@@ -886,7 +898,7 @@ h1, h2, h3, h4, .logo {
 .concept-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: -10px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -960,6 +972,7 @@ h1, h2, h3, h4, .logo {
   color: var(--text-main);
   line-height: 1.8;
   font-style: italic;
+  margin-top: -20px;
 }
 
 /* Location Section */
@@ -1009,10 +1022,10 @@ h1, h2, h3, h4, .logo {
 
 .section-subtitle {
   font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 5vw, 3rem);
+  font-size: clamp(1.3rem, 5vw, 2.5rem);
   color: var(--linen);
   letter-spacing: 2px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   text-align: center;
   margin: 1rem 0 1rem;
 }
@@ -1122,7 +1135,13 @@ h1, h2, h3, h4, .logo {
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
+    background: linear-gradient(
+    105deg,
+    var(--linen) 0%,
+    var(--caramel) 45%,
+    var(--linen) 100%
+  );
+  animation: shimmer 4s linear infinite;
   color: var(--espresso);
   padding: 0.45rem 1.8rem;
   border-radius: 0 0 20px 20px;
@@ -1327,7 +1346,13 @@ h1, h2, h3, h4, .logo {
 .service-select-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(181, 98, 46, 0.50);
-  background: linear-gradient(135deg, var(--copper) 0%, var(--caramel) 100%);
+    background: linear-gradient(
+    105deg,
+    var(--linen) 0%,
+    var(--caramel) 45%,
+    var(--linen) 100%
+  );
+  animation: shimmer 4s linear infinite;
 }
 
 .service-select-btn:active {

@@ -19,7 +19,7 @@ const About = () => {
       <section className="who-we-are-section">
         <div className="who-we-are-container">
           <h2 className="section-title">Who We Are</h2>
-          
+          <div className="divider-line"></div>
           <div className="who-we-are-content">
             <p>
               Coffee Ground was founded in July 2023 in the humble town of Malvar, Batangas by Eric and Jacqueline Tormis—Italian residents who returned to the Philippines with a dream of bringing a taste of Italy to their roots. With a shared love for rich coffee culture and heartfelt hospitality, they envisioned a space where authentic Italian cuisine meets Filipino flavors in a warm, community-centered environment.
@@ -40,7 +40,7 @@ const About = () => {
       <section className="our-concept-section">
         <div className="concept-banner">
           <h2 className="concept-title">Our Concept</h2>
-          
+          <div className="divider-line"></div>
           <div className="concept-content">
             <p className="concept-intro">
               At Coffee Ground, we serve more than just coffee, we serve connection.
@@ -62,6 +62,7 @@ const About = () => {
         <div className="mission-vision-container">
           <div className="mission-card">
             <h3 className="mission-vision-title">MISSION</h3>
+            <div className="divider-line"></div>
             <p className="mission-vision-text">
               To build a business that sustains livelihoods, uplifts communities, and fosters collaboration through food and coffee.
               Coffee Ground is a space where passion meets purpose, and where every cup supports a greater cause.
@@ -69,6 +70,7 @@ const About = () => {
           </div>
           <div className="vision-card">
             <h3 className="mission-vision-title">VISION</h3>
+            <div className="divider-line"></div>
             <p className="mission-vision-text">
               To become a top cofee chain in the Philippines, driven by quality, culture, and community.
               Within the next 10 years, we aim to grow Coffee Ground into a premier franchise brand recognized for excellence, authenticity, and heart.
@@ -82,7 +84,7 @@ const About = () => {
       <section className="our-concept-section">
         <div className="concept-banner">
           <h2 className="concept-title">Our values</h2>
-          
+          <div className="divider-line"></div>
           <div className="concept-content">
 
             <ul className="concept-list">

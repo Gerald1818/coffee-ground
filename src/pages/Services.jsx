@@ -140,18 +140,18 @@ const Services = () => {
         backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.8), rgba(26, 15, 10, 0.8)), url(${bgImage})` 
       }}>
       <div className="services-header">
-        <h2 className="about-title">Our Services</h2>
+        <h2 className="about-title">OUR SERVICES</h2>
         <p className="about-subtitle">Tailored luxury for your special moments.</p>
       </div>
 
       <section className="service-section">
-        <h3 className="section-subtitle">Coffee Booth</h3>
+        <h3 className="section-subtitle">coffee booth</h3>
         <div className="services-grid">
           {coffeePackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
         <section className="our-concept-section">
         <div className="concept-banner">
-          <h2 className="concept-title">Excluded</h2>
+          <h2 className="concept-title">excluded</h2>
           
           <div className="concept-content">
 
@@ -161,7 +161,7 @@ const Services = () => {
             </ul>
           </div>
 
-          <h2 className="concept-title">Add-Ons</h2>
+          <h2 className="concept-title">add-ons</h2>
           <div className="concept-content">
 
             <ul className="concept-list">
@@ -177,13 +177,13 @@ const Services = () => {
       </section>
 
       <section className="service-section">
-        <h3 className="section-subtitle">Nacho Bar</h3>
+        <h3 className="section-subtitle">nacho bar</h3>
         <div className="services-grid">
           {nachosPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
         <section className="our-concept-section">
           <div className="concept-banner">
-            <h2 className="concept-title">Excluded</h2>
+            <h2 className="concept-title">excluded</h2>
           
             <div className="concept-content">
 
@@ -193,7 +193,7 @@ const Services = () => {
              </ul>
             </div>
 
-           <h2 className="concept-title">Add-Ons</h2>
+           <h2 className="concept-title">add-ons</h2>
            <div className="concept-content">
 
              <ul className="concept-list">
@@ -208,14 +208,14 @@ const Services = () => {
       </section>
 
       <section className="service-section">
-        <h3 className="section-subtitle">Closed-Door Event</h3>
+        <h3 className="section-subtitle">closed-door event</h3>
         <div className="services-grid">
           {closedDoorPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
 
         <section className="our-concept-section">
           <div className="concept-banner">
-            <h2 className="concept-title">Add-Ons</h2>
+            <h2 className="concept-title">add-ons</h2>
           
             <div className="concept-content">
 
@@ -227,7 +227,7 @@ const Services = () => {
              </ul>
             </div>
 
-           <h2 className="concept-title">Terms & Condition</h2>
+           <h2 className="concept-title">terms & condition</h2>
            <div className="concept-content">
 
              <ul className="concept-list">
