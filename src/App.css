@@ -717,15 +717,6 @@ h1, h2, h3, h4, .logo {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
 }
 
-.section-subtitle {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  color: var(--linen);
-  letter-spacing: 2px;
-  margin-bottom: 0rem;
-  text-align: center;
-}
-
 .company-details {
   margin-bottom: 1.5rem;
   text-align: left;
@@ -1689,10 +1680,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 2rem;
   }
 
-  .section-subtitle {
-    font-size: 1.3rem;
-  }
-
   .who-we-are-content p {
     font-size: 0.95rem;
   }
@@ -1729,12 +1716,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .service-card {
     min-height: auto;
     padding: 2rem 1.5rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.2rem;
-    margin: 2rem 0 1.5rem;
-    padding: 0 16px;
   }
 
   .package-title {
@@ -1820,10 +1801,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .company-details p {
     font-size: 0.8rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.2rem;
   }
 
   .who-we-are-content p {
