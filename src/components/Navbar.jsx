@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 // Added BookOpen for the Menu icon
 import { LayoutDashboard, Info, Coffee, BookOpen } from 'lucide-react';
 
+
 const Navbar = () => {
   return (
     <nav className="navbar">

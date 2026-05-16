@@ -106,7 +106,7 @@ h1, h2, h3, h4, .logo {
 
 .logo {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-transform: uppercase;
   flex-shrink: 0;
   /* gradient shimmer on logo */
