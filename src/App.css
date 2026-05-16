@@ -845,6 +845,8 @@ h1, h2, h3, h4, .logo {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
   text-align: center;
   color: var(--text-main);
+  max-width: 600px; /* Or whatever width fits your design */
+  margin: 0 auto;
 }
 
 .concept-title {
