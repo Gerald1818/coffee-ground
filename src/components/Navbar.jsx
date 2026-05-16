@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// Import icons (Install using: npm install lucide-react)
-import { LayoutDashboard, Info, Coffee } from 'lucide-react';
+// Added BookOpen for the Menu icon
+import { LayoutDashboard, Info, Coffee, BookOpen } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -15,6 +15,11 @@ const Navbar = () => {
         <Link to="/about" className="nav-item">
           <Info className="nav-icon" size={20} />
           <span className="nav-text">About</span>
+        </Link>
+        {/* New Menu Link */}
+        <Link to="/menu" className="nav-item">
+          <BookOpen className="nav-icon" size={20} />
+          <span className="nav-text">Menu</span>
         </Link>
         <Link to="/services" className="nav-item">
           <Coffee className="nav-icon" size={20} />

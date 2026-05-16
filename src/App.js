@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Services from './pages/Services';
+// ADD THIS LINE BELOW:
+import Menu from './pages/Menu'; 
+
 import './App.css';
 
 function App() {
@@ -15,6 +18,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
       <Footer />
     </Router>

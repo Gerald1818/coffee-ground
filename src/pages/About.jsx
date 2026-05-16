@@ -8,64 +8,10 @@ const About = () => {
     <div className="about-page"style={{ 
         backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.9), rgba(26, 15, 10, 0.9)), url(${aboutBg})` 
       }}>
-      {/* HEADER SECTION */}
-      <div className="about-header-section">
-        <h1 className="about-hero-title">About Us</h1>
-      </div>
-
-      {/* COMPANY INFO SECTION */}
-      <section className="company-info-section">
-        <div className="company-info-card">
-          <h3 className="section-subtitle">Coffee Ground</h3>
-          
-          <div className="company-details">
-            <p><strong>Company Name:</strong> Coffee Ground</p>
-            <p><strong>Founded:</strong> July 2023</p>
-            <p><strong>Location:</strong> Malvar, Batangas, Philippines</p>
-            <p><strong>Founders:</strong> Eric Tormis & Jacqueline Tormis</p>
-          </div>
-
-          <div className="divider-line"></div>
-
-          <div className="core-team-section">
-            <h4 className="team-title">Core Team</h4>
-            <div className="team-members">
-              <div className="team-member">
-                <p><strong>Kerry Ancheta</strong></p>
-                <p className="team-role">Head of Menu Development & Culinary Operations</p>
-              </div>
-              <div className="team-member">
-                <p><strong>Angelo Oraa</strong></p>
-                <p className="team-role">Coffee Consultant, Head Barista, Customer Service Trainer & Marketing Lead</p>
-              </div>
-            </div>
-          </div>
-          <div className="core-team-section">
-            <h4 className="team-title">Employees</h4>
-            <div className="team-members">
-              <div className="team-member">
-                <p><strong>April Rose Oraa</strong></p>
-                <p className="team-role">Supervisor</p>
-              </div>
-              <div className="team-member">
-                <p><strong>Jane Kathleen Palermo</strong></p>
-                <p className="team-role">Barista/Kitchen Staff</p>
-              </div>
-              <div className="team-member">
-                <p><strong>Dave Martin Constantino</strong></p>
-                <p className="team-role">Kitchen Staff</p>
-              </div>
-              <div className="team-member">
-                <p><strong>Rhon Christopher Balubar</strong></p>
-                <p className="team-role">Kitchen Staff</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* WHO WE ARE SECTION */}
       <section className="who-we-are-section">
+         <h3 className="coffee-ground-subtitle">Coffee Ground</h3>
         <div className="who-we-are-container">
           <h2 className="section-title">Who We Are</h2>
           

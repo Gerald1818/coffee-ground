@@ -23,9 +23,9 @@
   --text-muted:     rgba(232, 213, 176, 0.55);
 
   /* ── Glass Surfaces ── */
-  --glass-warm:     rgba(61, 35, 20, 0.55);
-  --glass-deep:     rgba(28, 17, 10, 0.70);
-  --glass-mid:      rgba(92, 52, 32, 0.40);
+  --glass-warm:     rgba(61, 35, 20, 0.50);
+  --glass-deep:     rgba(28, 17, 10, 0.50);
+  --glass-mid:      rgba(92, 52, 32, 0.50);
   --glass-border:   rgba(216, 211, 179, 0.18);
   --glass-border-warm: rgba(200, 135, 63, 0.30);
 
@@ -101,50 +101,10 @@ h1, h2, h3, h4, .logo {
   border-bottom: 1px solid var(--glass-border);
   transition: all 0.3s ease;
 }
-/* Base styles for the nav items */
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: var(--parchment); /* Using your defined color variable */
-  transition: color 0.3s ease;
-}
-
-/* Hide icons on desktop by default */
-.nav-icon {
-  display: none;
-}
-
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0 5%; /* Less padding on mobile */
-  }
-
-  .logo {
-    font-size: 1.1rem; /* Smaller logo for more space */
-  }
-
-  .nav-links {
-    gap: 1.5rem; /* Space between icons */
-  }
-
-  /* Hide the text labels */
-  .nav-text {
-    display: none;
-  }
-
-  /* Show the icons */
-  .nav-icon {
-    display: block;
-    color: var(--caramel); /* Highlighting the icons with your accent color */
-  }
-}
 
 .logo {
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   flex-shrink: 0;
   /* gradient shimmer on logo */
@@ -174,6 +134,17 @@ h1, h2, h3, h4, .logo {
   transition: all 0.3s ease;
   opacity: 0.65;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-icon {
+  display: none;
+}
+
+.nav-text {
+  display: inline-block;
 }
 
 .nav-links a::after {
@@ -238,6 +209,7 @@ h1, h2, h3, h4, .logo {
   animation: fadeUp 0.9s ease-out both;
   position: relative;
   overflow: hidden;
+  
 }
 
 /* warm top-edge accent line */
@@ -322,52 +294,264 @@ h1, h2, h3, h4, .logo {
 }
 
 /* ────────────────────────────────────────────
-   PAGE LAYOUT (About / Services)
+   MENU PAGE STYLING
 ──────────────────────────────────────────── */
-.services-page {
-  /* These ensure the image behaves correctly since the URL is in the JSX */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  
-  /* Other styles */
+.menu-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   width: 100%;
-  padding: 140px 5% 100px;
+  background-color: #1C110A;
+  padding: 100px 20px 60px;
+  box-sizing: border-box;
+  position: relative;
 }
 
-/* subtle warm vignette overlay for inner pages */
-.services-page::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 0%,   rgba(92, 52, 32, 0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 10% 90%,  rgba(61, 35, 20, 0.30) 0%, transparent 55%);
-  z-index: 0;
+.menu-glass-card {
+  background: var(--glass-warm);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 2.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.50);
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
 }
 
-.services-page > * { position: relative; z-index: 1; }
+.menu-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--linen);
+  letter-spacing: 3px;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.title-underline {
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--caramel), transparent);
+  margin: 1rem auto 2rem;
+}
+
+.menu-image-frame {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 2rem;
+}
+
+.menu-image-scroll-box {
+  width: 100%;
+  max-height: 800px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-img-asset {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar for menu image */
+.menu-image-scroll-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.menu-image-scroll-box::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.menu-image-scroll-box::-webkit-scrollbar-thumb {
+  background: var(--caramel);
+  border-radius: 10px;
+}
+
+.menu-image-scroll-box::-webkit-scrollbar-thumb:hover {
+  background: var(--copper);
+}
+
+.menu-card-footer {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.menu-card-footer p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────
+   MENU PAGE RESPONSIVE
+──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .menu-glass-card {
+    padding: 2rem;
+  }
+
+  .menu-main-title {
+    font-size: 2.2rem;
+  }
+
+  .menu-image-scroll-box {
+    max-height: 750px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-page-container {
+    padding: 140px 16px 60px;
+  }
+
+  .menu-glass-card {
+    padding: 1.8rem;
+    border-radius: 20px;
+  }
+
+  .menu-main-title {
+    font-size: 1.8rem;
+  }
+
+  .menu-image-scroll-box {
+    max-height: 700px;
+  }
+
+  .menu-img-asset {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-card-footer p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-page-container {
+    padding: 100px 12px 60px;
+    min-height: auto;
+  }
+
+  .menu-glass-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.50);
+  }
+
+  .menu-main-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .title-underline {
+    width: 70%;
+    margin: 0.8rem auto 1.5rem;
+  }
+
+  .menu-image-frame {
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+  }
+
+  .menu-image-scroll-box {
+    max-height: 600px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-img-asset {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-card-footer {
+    padding-top: 1rem;
+  }
+
+  .menu-card-footer p {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+.background-layout {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Desktop: Fixed background for parallax effect */
+@media (min-width: 1025px) {
+  .background-layout {
+    background-attachment: fixed;
+  }
+}
+
+/* Tablet: Scroll background to prevent zoom */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .background-layout {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* Mobile: Optimized for mobile devices - NO ZOOM */
+@media (max-width: 768px) {
+  .background-layout {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    width: 100%;
+  }
+}
 
 .services-header {
   text-align: center;
-  margin-bottom: 4rem;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 0rem;
 }
 
 /* ── Typography helpers ── */
 .about-title {
-  font-family: var(--font-editorial);
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-style: italic;
-  font-weight: 300;
-  color: var(--linen);
-  letter-spacing: 3px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  margin-bottom: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 5vw, 3rem);
+  color: var(--caramel);
+  letter-spacing: 4px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.coffee-ground-subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 3rem);
+  color: var(--caramel);
+  letter-spacing: 4px;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  text-align: center;
 }
 
 .about-subtitle {
@@ -405,22 +589,33 @@ h1, h2, h3, h4, .logo {
 .ornament::after { transform: scaleX(-1); }
 
 /* ────────────────────────────────────────────
-   ABOUT PAGE STYLING
+   SERVICES PAGE
+──────────────────────────────────────────── */
+.services-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 140px 5% 100px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.services-page > * { position: relative; z-index: 1; }
+
+/* ────────────────────────────────────────────
+   ABOUT PAGE
 ──────────────────────────────────────────── */
 .about-page {
   min-height: 100vh;
-  background-color: var(--espresso);
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(92, 52, 32, 0.45) 0%, transparent 70%);
   padding-top: 80px;
+  position: relative;
+  z-index: 1;
+}
 
-  /* Background setup */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  
-  overflow-x: hidden;
+.about-page > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Header Section */
@@ -435,7 +630,7 @@ h1, h2, h3, h4, .logo {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-style: italic;
   font-weight: 300;
-  color: var(--linen);
+  color: var(--caramel);
   letter-spacing: 3px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   margin-bottom: 0;
@@ -454,8 +649,7 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 2.5rem;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
 }
 
 .section-subtitle {
@@ -463,7 +657,7 @@ h1, h2, h3, h4, .logo {
   font-size: 1.8rem;
   color: var(--linen);
   letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0rem;
   text-align: center;
 }
 
@@ -539,7 +733,7 @@ h1, h2, h3, h4, .logo {
 
 /* Who We Are Section */
 .who-we-are-section {
-  padding: 3rem 5%;
+  padding: 2rem 5%;
   max-width: 1000px;
   margin: 2rem auto;
 }
@@ -550,8 +744,7 @@ h1, h2, h3, h4, .logo {
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   padding: 3rem;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
 }
 
 .section-title {
@@ -583,6 +776,7 @@ h1, h2, h3, h4, .logo {
   padding: 3rem 5%;
   max-width: 1000px;
   margin: 2rem auto;
+  box-sizing: border-box;
 }
 
 .concept-banner {
@@ -590,19 +784,19 @@ h1, h2, h3, h4, .logo {
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 28px;
-  padding: 3.5rem;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  padding: 3rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
   text-align: center;
+  color: var(--text-main);
 }
 
 .concept-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--linen);
   letter-spacing: 3px;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: var(--text-main);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .concept-content {
@@ -610,25 +804,24 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-intro {
-  font-family: var(--font-editorial);
-  font-size: 1rem;
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
   color: var(--text-main);
   margin-bottom: 1rem;
+  font-weight: 500;
 }
-
 
 .concept-intro strong {
   font-weight: 700;
-  text-decoration: underline;
+  color: var(--caramel);
 }
 
 .concept-highlight {
-  font-family: var(--font-editorial);
-  font-size: 1rem;
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
   color: var(--text-main);
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .concept-list {
@@ -642,12 +835,13 @@ h1, h2, h3, h4, .logo {
 }
 
 .concept-list li {
-  font-family: var(--font-editorial);
-  font-size: 1rem;
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
   color: var(--text-main);
   padding-left: 2rem;
   position: relative;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
 .concept-list li::before {
@@ -656,6 +850,7 @@ h1, h2, h3, h4, .logo {
   left: 0;
   font-weight: 700;
   font-size: 1.1rem;
+  color: var(--caramel);
 }
 
 /* Mission & Vision Section */
@@ -679,8 +874,7 @@ h1, h2, h3, h4, .logo {
   border-radius: 28px;
   padding: 2.5rem;
   text-align: center;
-  box-shadow: 0 30px 80px rgba(200, 135, 63, 0.30);
-  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
   transition: all 0.4s ease;
 }
 
@@ -750,17 +944,18 @@ h1, h2, h3, h4, .logo {
    SERVICES SECTION & GRID
 ──────────────────────────────────────────── */
 .service-section {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .section-subtitle {
   font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-size: clamp(1.3rem, 5vw, 3rem);
   color: var(--linen);
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
-  margin: 3rem 0 2rem;
+  margin: 1rem 0 1rem;
 }
 
 .services-grid {
@@ -770,8 +965,30 @@ h1, h2, h3, h4, .logo {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto 2rem;
-  padding: 0 5%;
+  padding: 0 20px;
   box-sizing: border-box;
+}
+
+/* Special handling for single card (Closed Door) */
+.services-grid:has(.service-card:nth-child(1):last-child) {
+  grid-template-columns: minmax(280px, 600px);
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Make single card take up space */
+.services-grid:has(.service-card:nth-child(1):last-child) .service-card {
+  width: 100%;
+}
+
+/* For 2 cards layout */
+.services-grid:has(.service-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+}
+
+/* For 3+ cards layout */
+.services-grid:has(.service-card:nth-child(3)) {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 /* ────────────────────────────────────────────
@@ -789,22 +1006,6 @@ h1, h2, h3, h4, .logo {
   display: flex;
   flex-direction: column;
   min-height: 600px;
-  width: 100%;
-  max-width: 800px; 
-  margin: 0 auto;
-}
-
-.services-grid {
-  display: grid;
-  /* auto-fit allows multiple columns on desktop, minmax ensures they don't get too small */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  width: 100%;
-  /* Matches .our-concept-section and .who-we-are-section */
-  max-width: 1000px; 
-  margin: 0 auto 2rem;
-  padding: 0 5%;
-  box-sizing: border-box;
 }
 
 /* Particle container for falling items */
@@ -856,44 +1057,29 @@ h1, h2, h3, h4, .logo {
 
 /* popular badge */
 .pricing-badge {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  
-  /* This kills the shifting issue */
-  transform: none !important; 
-  
-  /* Layout */
-  display: block;
-  text-align: center;
-  padding: 0.6rem 0;
-  z-index: 20;
-
-  /* Visuals */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: linear-gradient(135deg, var(--caramel) 0%, var(--copper) 100%);
   color: var(--espresso);
-  border-radius: 15px 15px 0 0; /* Match your card's top roundness */
-  
-  /* Typography */
+  padding: 0.45rem 1.8rem;
+  border-radius: 0 0 20px 20px;
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 1 !important;
-}
-
-.pricing-card {
-  position: relative;
-  overflow: hidden;
-  padding-top: 3.5rem; 
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+  pointer-events: none;
+  z-index: 20;
 }
 
 .service-card.popular .pricing-badge {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 /* top gradient line on hover */
@@ -1303,32 +1489,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* ────────────────────────────────────────────
    RESPONSIVE
 ──────────────────────────────────────────── */
-@media (max-width: 768px) {
-
-  /* Force cards to stack vertically on tablets and mobile */
-  .services-grid {
-    grid-template-columns: 1fr; 
-    gap: 2rem;
-    padding: 0 5%;
-  }
-
-  .service-card {
-    min-height: auto;
-    max-width: 100%; /* Allow it to take full width of mobile screen minus padding */
-  }
+@media (max-width: 1000px) {
+  .navbar { padding: 0 5%; }
+  .hero   { padding: 0 5%; }
 }
 
-@media (max-width: 480px) {
-  /* ... your existing mobile-specific tweaks ... */
-  
-  /* Ensure consistent stacking on small phones */
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 1.2rem 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
 
   .logo {
-    font-size: 1.15rem;
+    font-size: 1.45rem;
     width: 100%;
     text-align: center;
   }
@@ -1339,11 +1515,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
   }
 
-  .nav-links a { font-size: 0.78rem; }
+  .nav-icon {
+    display: inline-flex;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    padding: 0.8rem 0.6rem;
+    min-width: 56px;
+    justify-content: center;
+  }
+
+  .nav-text {
+    display: block;
+    line-height: 1.2;
+    text-transform: none;
+  }
 
   .hero {
     justify-content: center;
-    padding: 0 20px;
+    padding: 120px 20px 20px;
+    margin-top: 1rem;
   }
 
   .hero-text,
@@ -1369,11 +1565,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .booking-form-card { padding: 2rem 1.5rem; }
 
-  /* Services Grid Tablet - Still 2-3 columns */
+  /* Services Grid Mobile: stack cards vertically */
   .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row;
     gap: 1.5rem;
     padding: 0 3%;
+    max-width: 100%;
+  }
+
+  .services-grid .service-card {
+    width: 100%;
   }
 
   .service-card {
@@ -1427,16 +1630,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 5%;
+    padding: 0 16px;
+    max-width: 100%;
   }
 
   .service-card {
     min-height: auto;
+    padding: 2rem 1.5rem;
   }
 
   .section-subtitle {
     font-size: 1.2rem;
     margin: 2rem 0 1.5rem;
+    padding: 0 16px;
   }
 
   .package-title {
@@ -1464,6 +1670,43 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .service-select-btn {
     padding: 0.7rem 1.5rem;
     font-size: 0.75rem;
+  }
+
+  .services-page {
+    padding: 140px 0 100px;
+  }
+
+  /* Fix our-concept-section (Excluded/Add-Ons) padding */
+  .our-concept-section {
+    padding: 2rem 16px;
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  .concept-banner {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .concept-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .concept-list li {
+    font-size: 0.9rem;
+  }
+
+  /* Fix divider line width on mobile */
+  .divider-line {
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  /* Ensure service-section spans full width */
+  .service-section {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
   /* About Page Mobile */
@@ -1533,8 +1776,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .team-role {
     font-size: 0.75rem;
   }
-  .icon-logo {
-  border-radius: 100%; /* This makes a square image perfectly circular */
-  border: 2px solid #61dafb; /* Optional: adds a colored ring around it */
-}
 }
