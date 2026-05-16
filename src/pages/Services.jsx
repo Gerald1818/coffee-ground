@@ -124,7 +124,7 @@ const Services = () => {
 
   const closedDoorPackages = [
     {
-      title: "Closed Door Event",
+      title: "Closed-Door Event",
       price: "₱3,500",
       duration: "Full Event (Consumable)",
       desc: "An exclusive private experience that provides full use of the space, offering a quiet and professional setting for special gatherings and focused events.",
