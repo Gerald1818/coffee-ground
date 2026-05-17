@@ -23,19 +23,45 @@ const Footer = () => {
 
   return (
     <footer className="main-footer">
-      {/* Clickable email paragraph */}
+      {/* Clickable email container */}
       <p 
         onClick={handleCopyEmail} 
         style={{ 
           marginBottom: '15px', 
           cursor: 'pointer', 
           userSelect: 'none',
-          display: 'inline-block' // Keeps the hover effect sized only to the text
+          display: 'inline-flex', // Align items nicely in a row
+          alignItems: 'center',
+          gap: '6px' // Small gap between text and icon
         }}
         title="Click to copy email"
         className="footer-email"
       >
-        {emailAddress} {copied && <span style={{ color: '#C8873F', fontSize: '0.85em', marginLeft: '8px' }}>(Copied!)</span>}
+        <span>{emailAddress}</span>
+        
+        {/* SVG Copy Icon */}
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="16" 
+          height="16" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          style={{ opacity: 0.7, verticalAlign: 'middle' }}
+        >
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+
+        {/* Success message */}
+        {copied && (
+          <span style={{ color: '#C8873F', fontSize: '0.85em', marginLeft: '4px' }}>
+            (Copied!)
+          </span>
+        )}
       </p>
 
       <p style={{ marginBottom: '15px' }}>©2023 Coffee Ground Cabuyao. All rights reserved.</p>
