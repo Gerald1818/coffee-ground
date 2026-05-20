@@ -353,16 +353,17 @@ const Services = () => {
       </section>
 
       {/* 🆕 LIGHTBOX MODAL OVERLAY LAYER */}
-      {activeImage && (
-        <div className="lightbox-overlay" onClick={() => setActiveImage(null)}>
-          <button className="lightbox-close" onClick={() => setActiveImage(null)}>
-            &times;
-          </button>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <img src={activeImage} alt="Full screen event preview" />
+        {activeImage && (
+          <div className="lightbox-overlay" onClick={() => setActiveImage(null)}>
+            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+              {/* Moved inside this container so it stays bound to the image frame */}
+              <button className="lightbox-close" onClick={() => setActiveImage(null)}>
+                &times;
+              </button>
+              <img src={activeImage} alt="Full screen event preview" />
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 };
