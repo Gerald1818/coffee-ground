@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import bgImage from '../assets/service-bg.png';
 import cbooth1 from '../assets/images/coffee/coffee-booth1.jpeg';
@@ -42,7 +42,6 @@ import closedDoor16 from '../assets/images/close-door/closed-door16.jpg';
 import closedDoor17 from '../assets/images/close-door/closed-door17.jpeg';
 import closedDoor18 from '../assets/images/close-door/closed-door18.jpeg';
 import closedDoor19 from '../assets/images/close-door/closed-door19.jpeg';
-
 
 // Reusable Card Component
 const ServiceCard = ({ pkg }) => (
@@ -108,6 +107,9 @@ const ServiceCard = ({ pkg }) => (
 );
 
 const Services = () => {
+  // 🆕 ADDED: State to manage which image asset is currently displayed in full screen
+  const [activeImage, setActiveImage] = useState(null);
+
   const coffeePackages = [
     {
       title: "Package 1",
@@ -178,7 +180,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-page "style={{ 
+    <div className="services-page" style={{ 
         backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.8), rgba(26, 15, 10, 0.8)), url(${bgImage})` 
       }}>
       <div className="services-header">
@@ -186,118 +188,111 @@ const Services = () => {
         <p className="about-subtitle">Tailored luxury for your special moments.</p>
       </div>
 
+      {/* COFFEE BOOTH SECTION */}
       <section className="service-section">
         <h3 className="section-subtitle">coffee booth</h3>
         <div className="services-grid">
           {coffeePackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
 
-          <section className="carousel-container">
-
-            <div className="carousel-slider">
-              <div className="carousel-track">
-                
-                <div className="slide"><img src={cbooth1} alt="coffee booth 1" /></div>
-                <div className="slide"><img src={cbooth2} alt="coffee booth 2" /></div>
-                <div className="slide"><img src={cbooth3} alt="coffee booth 3" /></div>
-                <div className="slide"><img src={cbooth4} alt="coffee booth 4" /></div>
-                <div className="slide"><img src={cbooth5} alt="coffee booth 5" /></div>
-                <div className="slide"><img src={cbooth6} alt="coffee booth 6" /></div>
-                <div className="slide"><img src={cbooth7} alt="coffee booth 7" /></div>
-                <div className="slide"><img src={cbooth8} alt="coffee booth 8" /></div>
-                <div className="slide"><img src={cbooth9} alt="coffee booth 9" /></div>
-                <div className="slide"><img src={cbooth10} alt="coffee booth 10" /></div>
-                <div className="slide"><img src={cbooth11} alt="coffee booth 11" /></div>
-                <div className="slide"><img src={cbooth12} alt="coffee booth 12" /></div>
-                <div className="slide"><img src={cbooth13} alt="coffee booth 13" /></div>
-                <div className="slide"><img src={cbooth14} alt="coffee booth 14" /></div>
-                <div className="slide"><img src={cbooth15} alt="coffee booth 15" /></div>
-                <div className="slide"><img src={cbooth16} alt="coffee booth 16" /></div>
-
-              </div>
+        <section className="carousel-container">
+          <div className="carousel-slider">
+            <div className="carousel-track">
+              {/* Added onClick hooks to update active state asset */}
+              <div className="slide" onClick={() => setActiveImage(cbooth1)}><img src={cbooth1} alt="coffee booth 1" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth2)}><img src={cbooth2} alt="coffee booth 2" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth3)}><img src={cbooth3} alt="coffee booth 3" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth4)}><img src={cbooth4} alt="coffee booth 4" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth5)}><img src={cbooth5} alt="coffee booth 5" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth6)}><img src={cbooth6} alt="coffee booth 6" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth7)}><img src={cbooth7} alt="coffee booth 7" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth8)}><img src={cbooth8} alt="coffee booth 8" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth9)}><img src={cbooth9} alt="coffee booth 9" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth10)}><img src={cbooth10} alt="coffee booth 10" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth11)}><img src={cbooth11} alt="coffee booth 11" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth12)}><img src={cbooth12} alt="coffee booth 12" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth13)}><img src={cbooth13} alt="coffee booth 13" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth14)}><img src={cbooth14} alt="coffee booth 14" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth15)}><img src={cbooth15} alt="coffee booth 15" /></div>
+              <div className="slide" onClick={() => setActiveImage(cbooth16)}><img src={cbooth16} alt="coffee booth 16" /></div>
             </div>
-          </section>
+          </div>
+        </section>
 
         <section className="our-concept-section">
-        <div className="concept-banner">
-          <h2 className="concept-title">excluded</h2>
-          
-          <div className="concept-content">
+          <div className="concept-banner">
+            <h2 className="concept-title">excluded</h2>
+            <div className="concept-content">
+              <ul className="concept-list">
+                <li>Transportation fee outside service area</li>
+                <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
+              </ul>
+            </div>
 
-            <ul className="concept-list">
-              <li>Transportation fee outside service area</li>
-              <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
-            </ul>
+            <h2 className="concept-title">add-ons</h2>
+            <div className="concept-content">
+              <ul className="concept-list">
+                <li>Pastries & Snacks</li>
+                <li>Overtime service extension</li>
+                <li>Flavored Drinks</li>
+                <li>Event content coverage</li>
+              </ul>
+            </div>
           </div>
-
-          <h2 className="concept-title">add-ons</h2>
-          <div className="concept-content">
-
-            <ul className="concept-list">
-              <li>Pastries & Snacks</li>
-              <li>Overtime service extension</li>
-              <li>Flavored Drinks</li>
-              <li>Event content coverage</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <div className="divider-line"></div>
+        </section>
+        <div className="divider-line"></div>
       </section>
 
+      {/* NACHO BAR SECTION */}
       <section className="service-section">
         <h3 className="section-subtitle">nacho bar</h3>
         <div className="services-grid">
           {nachosPackages.map((pkg, i) => <ServiceCard key={i} pkg={pkg} />)}
         </div>
         <section className="carousel-container">
-
-            <div className="carousel-slider">
-              <div className="carousel-track">
-                
-                <div className="slide"><img src={nacho1} alt="nacho bar 1" /></div>
-                <div className="slide"><img src={nacho2} alt="nacho bar 2" /></div>
-                <div className="slide"><img src={nacho3} alt="nacho bar 3" /></div>
-                <div className="slide"><img src={nacho4} alt="nacho bar 4" /></div>
-                <div className="slide"><img src={nacho5} alt="nacho bar 5" /></div>
-                <div className="slide"><img src={nacho6} alt="nacho bar 6" /></div>
-                <div className="slide"><img src={nacho1} alt="nacho bar 1" /></div>
-                <div className="slide"><img src={nacho2} alt="nacho bar 2" /></div>
-                <div className="slide"><img src={nacho3} alt="nacho bar 3" /></div>
-                <div className="slide"><img src={nacho4} alt="nacho bar 4" /></div>
-                <div className="slide"><img src={nacho5} alt="nacho bar 5" /></div>
-                <div className="slide"><img src={nacho6} alt="nacho bar 6" /></div>
-
-              </div>
+          <div className="carousel-slider">
+            <div className="carousel-track">
+              {/* Added onClick hooks to update active state asset */}
+              <div className="slide" onClick={() => setActiveImage(nacho1)}><img src={nacho1} alt="nacho bar 1" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho2)}><img src={nacho2} alt="nacho bar 2" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho3)}><img src={nacho3} alt="nacho bar 3" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho4)}><img src={nacho4} alt="nacho bar 4" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho5)}><img src={nacho5} alt="nacho bar 5" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho6)}><img src={nacho6} alt="nacho bar 6" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho1)}><img src={nacho1} alt="nacho bar 1" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho2)}><img src={nacho2} alt="nacho bar 2" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho3)}><img src={nacho3} alt="nacho bar 3" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho4)}><img src={nacho4} alt="nacho bar 4" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho5)}><img src={nacho5} alt="nacho bar 5" /></div>
+              <div className="slide" onClick={() => setActiveImage(nacho6)}><img src={nacho6} alt="nacho bar 6" /></div>
             </div>
-          </section>
+          </div>
+        </section>
 
         <section className="our-concept-section">
           <div className="concept-banner">
             <h2 className="concept-title">excluded</h2>
-          
             <div className="concept-content">
-
               <ul className="concept-list">
                 <li>Transportation fee outside service area</li>
                 <li style={{ marginBottom: '20px' }}>Additional service hours beyond agreed schedule</li>
-             </ul>
+              </ul>
             </div>
 
-           <h2 className="concept-title">add-ons</h2>
-           <div className="concept-content">
-
-             <ul className="concept-list">
+            <h2 className="concept-title">add-ons</h2>
+            <div className="concept-content">
+              <ul className="concept-list">
                 <li>Pastries & Snacks</li>
                 <li>Overtime service extension</li>
                 <li>Event content coverage</li>
-             </ul>
-           </div>
+              </ul>
+            </div>
           </div>
         </section>
-      <div className="divider-line"></div>
+        <div className="divider-line"></div>
       </section>
 
+      {/* CLOSED-DOOR EVENT SECTION */}
       <section className="service-section">
         <h3 className="section-subtitle">closed-door event</h3>
         <div className="services-grid">
@@ -305,63 +300,69 @@ const Services = () => {
         </div>
 
         <section className="carousel-container">
-
-            <div className="carousel-slider">
-              <div className="carousel-track">
-                
-                <div className="slide"><img src={closedDoor1} alt="coffee booth 1" /></div>
-                <div className="slide"><img src={closedDoor2} alt="coffee booth 2" /></div>
-                <div className="slide"><img src={closedDoor3} alt="coffee booth 3" /></div>
-                <div className="slide"><img src={closedDoor4} alt="coffee booth 4" /></div>
-                <div className="slide"><img src={closedDoor5} alt="coffee booth 5" /></div>
-                <div className="slide"><img src={closedDoor6} alt="coffee booth 6" /></div>
-                <div className="slide"><img src={closedDoor7} alt="coffee booth 7" /></div>
-                <div className="slide"><img src={closedDoor8} alt="coffee booth 8" /></div>
-                <div className="slide"><img src={closedDoor9} alt="coffee booth 9" /></div>
-                <div className="slide"><img src={closedDoor10} alt="coffee booth 10" /></div>
-                <div className="slide"><img src={closedDoor11} alt="coffee booth 11" /></div>
-                <div className="slide"><img src={closedDoor12} alt="coffee booth 12" /></div>
-                <div className="slide"><img src={closedDoor13} alt="coffee booth 13" /></div>
-                <div className="slide"><img src={closedDoor14} alt="coffee booth 14" /></div>
-                <div className="slide"><img src={closedDoor15} alt="coffee booth 15" /></div>
-                <div className="slide"><img src={closedDoor16} alt="coffee booth 16" /></div>
-                <div className="slide"><img src={closedDoor17} alt="coffee booth 17" /></div>
-                <div className="slide"><img src={closedDoor18} alt="coffee booth 18" /></div>
-                <div className="slide"><img src={closedDoor19} alt="coffee booth 19" /></div>
-
-              </div>
+          <div className="carousel-slider">
+            <div className="carousel-track">
+              {/* Added onClick hooks to update active state asset */}
+              <div className="slide" onClick={() => setActiveImage(closedDoor1)}><img src={closedDoor1} alt="closed door 1" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor2)}><img src={closedDoor2} alt="closed door 2" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor3)}><img src={closedDoor3} alt="closed door 3" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor4)}><img src={closedDoor4} alt="closed door 4" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor5)}><img src={closedDoor5} alt="closed door 5" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor6)}><img src={closedDoor6} alt="closed door 6" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor7)}><img src={closedDoor7} alt="closed door 7" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor8)}><img src={closedDoor8} alt="closed door 8" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor9)}><img src={closedDoor9} alt="closed door 9" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor10)}><img src={closedDoor10} alt="closed door 10" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor11)}><img src={closedDoor11} alt="closed door 11" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor12)}><img src={closedDoor12} alt="closed door 12" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor13)}><img src={closedDoor13} alt="closed door 13" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor14)}><img src={closedDoor14} alt="closed door 14" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor15)}><img src={closedDoor15} alt="closed door 15" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor16)}><img src={closedDoor16} alt="closed door 16" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor17)}><img src={closedDoor17} alt="closed door 17" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor18)}><img src={closedDoor18} alt="closed door 18" /></div>
+              <div className="slide" onClick={() => setActiveImage(closedDoor19)}><img src={closedDoor19} alt="closed door 19" /></div>
             </div>
-          </section>
+          </div>
+        </section>
 
         <section className="our-concept-section">
           <div className="concept-banner">
             <h2 className="concept-title">add-ons</h2>
-          
             <div className="concept-content">
-
               <ul className="concept-list">
                 <li>Grazing table</li>
                 <li>Customized decor</li>
                 <li>Dessert packages</li>
                 <li style={{ marginBottom: '20px' }}>Photo Set-up</li>
-             </ul>
+              </ul>
             </div>
 
-           <h2 className="concept-title">terms & condition</h2>
-           <div className="concept-content">
-
-             <ul className="concept-list">
+            <h2 className="concept-title">terms & condition</h2>
+            <div className="concept-content">
+              <ul className="concept-list">
                 <li>Reservation required</li>
                 <li>Excess orders beyond consumable amount will be charged separately</li>
                 <li>Extension of stay subject to availability</li>
                 <li>Outside food and drinks may require corkage fee</li>
-             </ul>
-           </div>
+              </ul>
+            </div>
           </div>
         </section>
         <div className="divider-line"></div>
-        
       </section>
+
+      {/* 🆕 LIGHTBOX MODAL OVERLAY LAYER */}
+      {activeImage && (
+        <div className="lightbox-overlay" onClick={() => setActiveImage(null)}>
+          <button className="lightbox-close" onClick={() => setActiveImage(null)}>
+            &times;
+          </button>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img src={activeImage} alt="Full screen event preview" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
