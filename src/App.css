@@ -1052,7 +1052,7 @@ h1, h2, h3, h4, .logo {
 .carousel-track {
   display: flex;
   width: max-content; /* Dynamically sizes to fit all images side-by-side */
-  animation: scrollLeft 45s linear infinite;
+  animation: scrollLeft 65s linear infinite;
 }
 
 /* Individual Slides */
