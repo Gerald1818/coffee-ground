@@ -1002,6 +1002,97 @@ h1, h2, h3, h4, .logo {
   50% { transform: translateX(-20px) translateY(400px) rotateZ(180deg); }
   75% { transform: translateX(40px) translateY(500px) rotateZ(270deg); }
 }
+/* ────────────────────────────────────────────
+   SERVICES IMAGE ASSETS
+──────────────────────────────────────────── */
+
+/* Header Text styling */
+.carousel-container {
+  width: 100%;
+  max-width: 1800px;
+  padding: 40px 0;
+  margin: 0 auto;             /* CHANGED: Centers the container horizontally on desktop */
+  display: flex;              /* 🆕 ADDED: Formats container as a flexbox layout */
+  flex-direction: column;     /* 🆕 ADDED: Stacks header and slider vertically */
+  align-items: center;
+}
+
+/* The Outer Window */
+.carousel-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  border-radius: 16px;
+}
+
+/* Fading gradients on the edges to look sleek */
+.carousel-slider::before,
+.carousel-slider::after {
+  content: "";
+  height: 100%;
+  width: 15%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-slider::before {
+  left: 0;
+  background: linear-gradient(to right, #2B1810 0%, transparent 100%);
+}
+
+.carousel-slider::after {
+  right: 0;
+  background: linear-gradient(to left, #2B1810 0%, transparent 100%);
+}
+
+/* The moving track */
+.carousel-track {
+  display: flex;
+  width: max-content; /* Dynamically sizes to fit all images side-by-side */
+  animation: scrollLeft 45s linear infinite;
+}
+
+/* Individual Slides */
+.slide {
+  padding: 0 15px; /* Creates space between images */
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 380px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: grayscale(20%) brightness(90%);
+}
+
+/* Interaction: Pause on hover and pop the image out */
+.carousel-slider:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.slide img:hover {
+  transform: translateY(-8px) scale(1.03);
+  filter: grayscale(0%) brightness(100%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+/* The Core Animation Mechanism */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Moves the track left by exactly half its overall length */
+    transform: translateX(-50%);
+  }
+}
 
 /* ────────────────────────────────────────────
    SERVICES SECTION & GRID
