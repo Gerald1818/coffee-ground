@@ -1095,7 +1095,7 @@ h1, h2, h3, h4, .logo {
 }
 
 /* ────────────────────────────────────────────
-   ✨ PINNED LIGHTBOX MODAL STYLES
+   ✨ SYMMETRICAL LIGHTBOX TRANSITIONS
 ──────────────────────────────────────────── */
 
 .lightbox-overlay {
@@ -1105,51 +1105,60 @@ h1, h2, h3, h4, .logo {
   width: 100vw;
   height: 100vh;
   background-color: rgba(15, 8, 5, 0.96);
-  z-index: 100; /* Stays below navbar layer */
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Safe breathing padding around the image viewport container */
   padding: 120px 24px 40px 24px; 
   box-sizing: border-box;
-  animation: fadeIn 0.3s ease-out;
+  
+  /* Opening Effects */
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* 🏁 Triggered when clicking close or outside the image frame */
+.lightbox-overlay.closing {
+  animation: fadeOut 0.25s ease-in forwards;
 }
 
 .lightbox-content {
-  position: relative; /* Acts as the anchor boundary for the close button */
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   max-width: 100%;
   max-height: 100%;
-  animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Opening Effects */
+  animation: zoomIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lightbox-overlay.closing .lightbox-content {
+  /* Closing Effects: Reverse of the entrance */
+  animation: zoomOut 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .lightbox-content img {
   width: auto;
   height: auto;
   max-width: 90vw;  
-  max-height: 70vh; /* Keeps it clear from the navbar on small screens */
+  max-height: 70vh;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
 
-/* 🎯 Floating close button pinned directly to the top-right of the image */
 .lightbox-close {
   position: absolute;
-  top: -20px;       /* Hangs slightly above the image border */
-  right: -20px;     /* Hangs slightly to the right of the image border */
+  top: -20px;
+  right: -20px;
   width: 44px;
   height: 44px;
-  background: #1a0f0a; /* Dark solid color matching your brand palette */
-  border: 2px solid #5C3420; /* Subtle warm outline accents */
+  background: #1a0f0a;
+  border: 2px solid #5C3420;
   color: #fff;
   font-size: 28px;
-  line-height: 38px; /* Perfectly centers the X character inside the ring */
-  font-weight: 300;
-  border-radius: 50%; /* Rounded circle button appearance */
+  border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s, background-color 0.2s;
@@ -1164,13 +1173,8 @@ h1, h2, h3, h4, .logo {
   transform: scale(1.1);
 }
 
-/* Mobile fine-tuning adjustment overrides */
 @media (max-width: 768px) {
-  .lightbox-overlay {
-    padding-top: 140px; /* Provides a bit more drop clearance on mobile layouts */
-  }
-  
-  /* Pull the button slightly inwards on tight mobile displays so it doesn't clip the screen edge */
+  .lightbox-overlay { padding-top: 140px; }
   .lightbox-close {
     top: -15px;
     right: -10px;
@@ -1180,15 +1184,28 @@ h1, h2, h3, h4, .logo {
   }
 }
 
-/* Entry Animations */
+/* ────────────────────────────────────────────
+   ANIMATION KEYFRAMES
+──────────────────────────────────────────── */
+
+/* Entrance Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes zoomIn {
-  from { transform: scale(0.96); opacity: 0; }
+  from { transform: scale(0.92); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+/* Exit Animations (Perfect mirror match) */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.92); opacity: 0; }
 }
 
 /* ────────────────────────────────────────────

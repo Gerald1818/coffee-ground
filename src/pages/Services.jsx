@@ -107,8 +107,18 @@ const ServiceCard = ({ pkg }) => (
 );
 
 const Services = () => {
-  // 🆕 ADDED: State to manage which image asset is currently displayed in full screen
+  // 🆕 CORRECTED: All Hooks are now placed safely here at the top level
   const [activeImage, setActiveImage] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // 🆕 Helper function to execute the closing animation cleanly
+  const handleCloseImage = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActiveImage(null);
+      setIsClosing(false); // Reset closing state for the next time it opens
+    }, 250); // Matches the 0.25s animation in your CSS
+  };
 
   const coffeePackages = [
     {
@@ -198,7 +208,6 @@ const Services = () => {
         <section className="carousel-container">
           <div className="carousel-slider">
             <div className="carousel-track">
-              {/* Added onClick hooks to update active state asset */}
               <div className="slide" onClick={() => setActiveImage(cbooth1)}><img src={cbooth1} alt="coffee booth 1" /></div>
               <div className="slide" onClick={() => setActiveImage(cbooth2)}><img src={cbooth2} alt="coffee booth 2" /></div>
               <div className="slide" onClick={() => setActiveImage(cbooth3)}><img src={cbooth3} alt="coffee booth 3" /></div>
@@ -252,7 +261,6 @@ const Services = () => {
         <section className="carousel-container">
           <div className="carousel-slider">
             <div className="carousel-track">
-              {/* Added onClick hooks to update active state asset */}
               <div className="slide" onClick={() => setActiveImage(nacho1)}><img src={nacho1} alt="nacho bar 1" /></div>
               <div className="slide" onClick={() => setActiveImage(nacho2)}><img src={nacho2} alt="nacho bar 2" /></div>
               <div className="slide" onClick={() => setActiveImage(nacho3)}><img src={nacho3} alt="nacho bar 3" /></div>
@@ -302,7 +310,6 @@ const Services = () => {
         <section className="carousel-container">
           <div className="carousel-slider">
             <div className="carousel-track">
-              {/* Added onClick hooks to update active state asset */}
               <div className="slide" onClick={() => setActiveImage(closedDoor1)}><img src={closedDoor1} alt="closed door 1" /></div>
               <div className="slide" onClick={() => setActiveImage(closedDoor2)}><img src={closedDoor2} alt="closed door 2" /></div>
               <div className="slide" onClick={() => setActiveImage(closedDoor3)}><img src={closedDoor3} alt="closed door 3" /></div>
@@ -352,18 +359,20 @@ const Services = () => {
         <div className="divider-line"></div>
       </section>
 
-      {/* 🆕 LIGHTBOX MODAL OVERLAY LAYER */}
-        {activeImage && (
-          <div className="lightbox-overlay" onClick={() => setActiveImage(null)}>
-            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              {/* Moved inside this container so it stays bound to the image frame */}
-              <button className="lightbox-close" onClick={() => setActiveImage(null)}>
-                &times;
-              </button>
-              <img src={activeImage} alt="Full screen event preview" />
-            </div>
+      {/* 🆕 CORRECTED: Clean Lightbox rendering block utilizing top-level states */}
+      {activeImage && (
+        <div 
+          className={`lightbox-overlay ${isClosing ? 'closing' : ''}`} 
+          onClick={handleCloseImage}
+        >
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={handleCloseImage}>
+              &times;
+            </button>
+            <img src={activeImage} alt="Full screen event preview" />
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };
