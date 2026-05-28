@@ -1328,7 +1328,6 @@ h1, h2, h3, h4, .logo {
   align-items: center;
   padding: 140px 5% 100px;
   min-height: 100vh;
-  margin-top: 80px;
   position: relative;
   z-index: 1;
 }
@@ -1342,7 +1341,6 @@ h1, h2, h3, h4, .logo {
   min-height: 100vh;
   padding-top: 80px;
   position: relative;
-  margin-top: 50px;
   z-index: 1;
 }
 
