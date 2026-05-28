@@ -1,0 +1,213 @@
+{
+  "_comment": "BEVERAGES",
+  "coffeeBased": {
+    "title": "Coffee Based",
+    "headers": ["Hot (12oz)", "Iced (16oz)", "Iced (22oz)"],
+    "items": [
+      { "name": "Espresso", "prices": [75, null, null] },
+      { "name": "Americano", "prices": [110, 125, 135] },
+      { "name": "Barako/Brewed", "prices": [110, 125, 135] },
+      { "name": "Cappuccino", "prices": [125, 150, 160] },
+      { "name": "Cafe Latte", "prices": [125, 145, 155] },
+      { "name": "Flat White", "prices": [125, null, null] },
+      { "name": "Macchiato", "prices": [145, 170, 180] },
+      { "name": "Cafe Mocha", "prices": [155, 185, 195] },
+      { "name": "Salted Caramel", "prices": [145, 170, 180] },
+      { "name": "Vanilla Latte", "prices": [145, 170, 180] },
+      { "name": "Hazelnut Latte", "prices": [145, 175, 180] },
+      { "name": "Signature CG", "prices": [null, 185, 195] }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Breve", "price": 35 },
+        { "name": "Milk", "price": 35 },
+        { "name": "Syrup", "price": 35 },
+        { "name": "Sauce", "price": 35 },
+        { "name": "Extra Shot", "price": 40 },
+        { "name": "Coffee Jelly", "price": 35 }
+      ]
+    }
+  },
+  "nonCoffeeBased": {
+    "title": "Non-Coffee Based",
+    "headers": ["Hot (12oz)", "Iced (16oz)", "Iced (22oz)"],
+    "items": [
+      { "name": "Basilur Tea", "prices": [120, 155, null] },
+      { "name": "Tsokolate", "prices": [155, 175, 185] }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Breve", "price": 35 },
+        { "name": "Milk", "price": 35 },
+        { "name": "Syrup", "price": 35 },
+        { "name": "Sauce", "price": 35 },
+        { "name": "Extra Shot", "price": 40 },
+        { "name": "Coffee Jelly", "price": 35 }
+      ]
+    }
+  },
+  "blendedNonCoffee": {
+    "title": "Non-Coffee Based",
+    "headers": ["Iced (16oz)", "Iced (22oz)"],
+    "items": [
+      { "name": "Vanilla Creme", "prices": [180, 195] },
+      { "name": "Mochaccino", "prices": [170, 195] },
+      { "name": "Cookies & Cream", "prices": [195, 210] },
+      { "name": "Matcha", "prices": [180, 195] },
+      { "name": "Strawberry Vanilla", "prices": [175, 185] },
+      { "name": "Dark Choco", "prices": [175, 185] }
+    ]
+  },
+  "blended": {
+    "title": "Coffee Based",
+    "headers": ["Iced (16oz)", "Iced (22oz)"],
+    "items": [
+      { "name": "Mocha", "prices": [175, 185] },
+      { "name": "White Mocha", "prices": [185, 195] },
+      { "name": "Dark Caramel", "prices": [185, 195] },
+      { "name": "White Caramel", "prices": [170, 195] },
+      { "name": "Hazelnut", "prices": [210, 230] },
+      { "name": "Coffee Jelly", "prices": [210, 225] }
+    ],
+    "refreshersAndCocktails": {
+      "sizeLabel": "One Size (16oz)",
+      "refreshers": {
+        "title": "Refreshers",
+        "items": [
+          { "name": "Cherry Soda", "price": 155 },
+          { "name": "Honey Citron", "price": 155 }
+        ]
+      },
+      "cocktails": {
+        "title": "Cocktails",
+        "items": [
+          { "name": "Poison Ivy", "price": 180 },
+          { "name": "Blue Lagoon", "price": 170 }
+        ]
+      }
+    }
+  },
+  "matchaSeries": {
+    "title": "Matcha Series",
+    "headers": ["Hot (12oz)", "Iced (16oz)", "Iced (22oz)"],
+    "items": [
+      { "name": "Matcha Latte",      "prices": [160, 170, 180] },
+      { "name": "Vanilla Matcha",    "prices": [175, 210, 230] },
+      { "name": "Pink Matcha",       "prices": [null, 210, 230] },
+      { "name": "Seasalt Matcha",    "prices": [null, 220, 240] },
+      { "name": "Dirty Matcha",      "prices": [180, 210, 220] },
+      { "name": "White Matcha",      "prices": [190, 235, 245] },
+      { "name": "Hazelnut Matcha",   "prices": [175, 210, 220] },
+      { "name": "C. Cloud Matcha",   "prices": [null, 215, 225] },
+      { "name": "Caramel Matcha",    "prices": [175, 210, 220] },
+      { "name": "S. Caramel Matcha", "prices": [175, 210, 220] }
+    ],
+    "iceLevel": ["Extra Ice", "Reg. Ice", "Less Ice", "No Ice"],
+    "sugarLevel": ["100%", "75%", "50%", "25%", "0%"]
+  },
+  "appetizers": {
+    "title": "Appetizers",
+    "items": [
+      { "name": "French Fries",       "desc": "Crispy, golden potato strips.",          "price": 150 },
+      { "name": "Nuggets",            "desc": "Crispy, bite-sized chicken breast",      "price": 190 },
+      { "name": "Fries & Nuggets",    "desc": "Golden, savory snack combo.",            "price": 190 },
+      { "name": "Nachos w/ Salsa",    "desc": "Crispy tortilla chips paired with salsa","price": 150 },
+      { "name": "Nachos Overload",    "desc": "Ultimate cheesy loaded chips",           "price": 190 },
+      { "name": "Mozzarella Sticks",  "desc": "Cheesy, gooey fried mozza sticks",       "price": 190 },
+      { "name": "Chicken Fingers",    "desc": "Tender, crispy chicken strips",          "price": 220 },
+      { "name": "Hash Brown",         "desc": "Crispy, golden potato patties",          "price": 175 }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Cheese Dip",    "price": 35 },
+        { "name": "Red Sauce Dip", "price": 35 }
+      ]
+    }
+  },
+  "sandwich": {
+    "title": "Sandwich",
+    "items": [
+      { "name": "Grilled Ham & Cheese", "desc": "Toasty, cheesy ham sandwich", "price": 190 },
+      { "name": "Chicken Pesto Sandwich", "desc": "Savory, herby chicken sandwich", "price": 210 },
+      { "name": "Tuna Sandwich", "desc": "Savory, creamy tuna sandwich", "price": 220 },
+      { "name": "Chicken Caesar Sandwich", "desc": "Classic, creamy caesar sandwich", "price": 220 },
+      { "name": "Club Sandwich", "desc": "Ultimate, cheesy ham, caesar chicken, boiled egg, & veggies", "price": 259 }
+    ]
+  },
+  "salad": {
+    "title": "Salad",
+    "items": [
+      { "name": "Caesar Salad", "desc": "Classic, crisp caesar salad", "price": 220 },
+      { "name": "Chicken Caesar Salad", "desc": "Classic, crisp chicken salad", "price": 250 }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Bacon Bits", "price": 40 },
+        { "name": "Boiled Egg", "price": 35 }
+      ]
+    }
+  },
+  "pasta": {
+    "title": "Pasta",
+    "items": [
+      { "name": "Chicken Alfredo", "desc": "Rich, creamy chicken pasta", "price": 240 },
+      { "name": "Shrimp Aglio Olio", "desc": "Garlic, olive oil shrimp", "price": 250 },
+      { "name": "Authentic Carbonara", "desc": "Rich, egg-based Roman pasta", "price": 270 },
+      { "name": "Tuna Pesto", "desc": "Savory, herby tuna pasta", "price": 260 },
+      { "name": "Tuna Pasta", "desc": "Savory, flaky tuna pasta", "price": 250 },
+      { "name": "Tomato Arrabiata", "desc": "Spicy, garlicky tomato pasta", "price": 260 },
+      { "name": "Ragu Bolognese", "desc": "Rich, slow-cooked meat sauce", "price": 250 },
+      { "name": "Filipino Style Spaghetti", "desc": "Sweet, savory meat and hotdog sauce pasta", "price": 250 },
+      { "name": "Pasta Al Funghi", "desc": "Earthy, creamy mushroom pasta", "price": 320 }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Garlic Bread", "price": 15 },
+        { "name": "Parmesan", "price": 25 }
+      ]
+    }
+  },
+  "allDayBreakfast": {
+    "title": "All-Day Breakfast",
+    "items": [
+      { "name": "Spam & Egg", "desc": "Salty, savory breakfast combo", "price": 250 },
+      { "name": "Tocino with Egg", "desc": "Sweet, cured breakfast combo", "price": 250 },
+      { "name": "American Breakfast", "desc": "4 sliced bread, 4 strips bacon, and 2 eggs with strawberry jam", "price": 270 },
+      { "name": "Tapa with Egg", "desc": "Savory, garlicky cured beef breakfast combo", "price": 230 },
+      { "name": "Ranched-Style Corned Beef", "desc": "Savory, chunky corned beef breakfast combo", "price": 250 },
+      { "name": "Bangus with Egg", "desc": "Savory, tangy fried milkfish breakfast combo", "price": 265 }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Rice", "price": 35 },
+        { "name": "Garlic Bread", "price": 15 },
+        { "name": "Egg", "price": 35 }
+      ]
+    }
+  },
+  "riceMeals": {
+    "title": "Rice Meals",
+    "items": [
+      { "name": "Beer Battered Fish Fillet", "desc": "Crispy, golden-fried pub-style seafood", "price": 255 },
+      { "name": "Chicken Salpicao", "desc": "Garlicky, sweet & spicy stir-fried chicken", "price": 270 },
+      { "name": "Two-Piece Fried Chicken", "desc": "Crispy, golden, double-portion comfort food", "price": 270 },
+      { "name": "Grilled Pork Liempo", "desc": "Smoky, charred, savory marinated pork belly", "price": 290 },
+      { "name": "Breaded Porkchop", "desc": "Crispy, golden-fried, savory comfort food", "price": 290 },
+      { "name": "Beef & Mushroom", "desc": "Savory, earthy beef and mushroom medley", "price": 310 }
+    ],
+    "addOns": {
+      "title": "Add-Ons",
+      "items": [
+        { "name": "Rice", "price": 35 },
+        { "name": "Potato Marbles", "price": 20 },
+        { "name": "Egg", "price": 35 }
+      ]
+    }
+  }
+}

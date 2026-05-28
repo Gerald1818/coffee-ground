@@ -1,22 +1,55 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import aboutBg from '../assets/about-bg.png';
 import menuImage from '../assets/brand-header.png';
+import '../App.css';
 
 const About = () => {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.6979224355373!2d121.1211554751705!3d14.270830885065191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d9bc2c409f37%3A0x94512c7c2e33ff53!2sCOFFEE%20GROUND%20Cabuyao!5e0!3m2!1sen!2sph!4v1778590775509!5m2!1sen!2sph";
+  const containerRef = useRef(null);
+
+  // Reused the exact IntersectionObserver setup from your Menu component
+  useEffect(() => {
+    const targets = containerRef.current?.querySelectorAll('[data-animate]');
+    if (!targets) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('menu-animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="about-page" style={{ 
+    <div 
+      className="about-page" 
+      ref={containerRef}
+      style={{ 
         backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.9), rgba(26, 15, 10, 0.9)), url(${aboutBg})` 
-      }}>
+      }}
+    >
       <img 
         src={menuImage} 
         alt="Coffee Ground Menu" 
         className="about-header-asset" 
+        data-animate 
+        style={{ '--menu-delay': '0ms' }}
       />
 
       {/* WHO WE ARE SECTION */}
-      <section className="who-we-are-section">
+      <section 
+        className="who-we-are-section" 
+        data-animate 
+        style={{ '--menu-delay': '80ms' }}
+      >
         <div className="who-we-are-container">
           <h2 className="section-title">Who We Are</h2>
           <div className="divider-line"></div>
@@ -37,7 +70,11 @@ const About = () => {
       </section>
 
       {/* OUR CONCEPT SECTION */}
-      <section className="our-concept-section">
+      <section 
+        className="our-concept-section" 
+        data-animate 
+        style={{ '--menu-delay': '160ms' }}
+      >
         <div className="concept-banner">
           <h2 className="concept-title">Our Concept</h2>
           <div className="divider-line"></div>
@@ -58,7 +95,11 @@ const About = () => {
       </section>
 
       {/* MISSION & VISION SECTION */}
-      <section className="mission-vision-section">
+      <section 
+        className="mission-vision-section" 
+        data-animate 
+        style={{ '--menu-delay': '240ms' }}
+      >
         <div className="mission-vision-container">
           <div className="mission-card">
             <h3 className="mission-vision-title">MISSION</h3>
@@ -72,21 +113,23 @@ const About = () => {
             <h3 className="mission-vision-title">VISION</h3>
             <div className="divider-line"></div>
             <p className="mission-vision-text">
-              To become a top cofee chain in the Philippines, driven by quality, culture, and community.
+              To become a top coffee chain in the Philippines, driven by quality, culture, and community.
               Within the next 10 years, we aim to grow Coffee Ground into a premier franchise brand recognized for excellence, authenticity, and heart.
             </p>
           </div>
-          
         </div>
-        
       </section>
-      {/* OUR Values */}
-      <section className="our-concept-section">
+
+      {/* OUR VALUES */}
+      <section 
+        className="our-concept-section" 
+        data-animate 
+        style={{ '--menu-delay': '0ms' }}
+      >
         <div className="concept-banner">
           <h2 className="concept-title">Our values</h2>
           <div className="divider-line"></div>
           <div className="concept-content">
-
             <ul className="concept-list">
               <li>Authenticity - True to our roots, proud of our story</li>
               <li>Collaboration - Built through teamwork and shared passion</li>
@@ -98,7 +141,11 @@ const About = () => {
       </section>
 
       {/* LOCATION MAP SECTION */}
-      <section className="location-section">
+      <section 
+        className="location-section" 
+        data-animate 
+        style={{ '--menu-delay': '80ms' }}
+      >
         <div className="location-container">
           <div className="map-wrapper">
             <iframe

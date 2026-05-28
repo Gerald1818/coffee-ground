@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Added useEffect
 import '../App.css';
 import bgImage from '../assets/service-bg.png';
 import cbooth1 from '../assets/images/coffee/coffee-booth1.jpeg';
@@ -107,17 +107,25 @@ const ServiceCard = ({ pkg }) => (
 );
 
 const Services = () => {
-  // 🆕 CORRECTED: All Hooks are now placed safely here at the top level
   const [activeImage, setActiveImage] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
+  
+  // ─── PAGE ENTRANCE ANIMATION STATE ───────────────────────────────
+  const [isVisible, setIsVisible] = useState(false);
 
-  // 🆕 Helper function to execute the closing animation cleanly
+  useEffect(() => {
+    // Triggers the entry frame state quickly upon render mounting
+    const timer = setTimeout(() => setIsVisible(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Helper function to execute the closing animation cleanly
   const handleCloseImage = () => {
     setIsClosing(true);
     setTimeout(() => {
       setActiveImage(null);
-      setIsClosing(false); // Reset closing state for the next time it opens
-    }, 250); // Matches the 0.25s animation in your CSS
+      setIsClosing(false); 
+    }, 250); 
   };
 
   const coffeePackages = [
@@ -190,9 +198,13 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-page" style={{ 
+    <div 
+      /* Dynamically appended the conditional animation tracking selectors */
+      className={`services-page ${isVisible ? 'fade-in-visible' : 'fade-in-hidden'}`} 
+      style={{ 
         backgroundImage: `linear-gradient(rgba(26, 15, 10, 0.8), rgba(26, 15, 10, 0.8)), url(${bgImage})` 
-      }}>
+      }}
+    >
       <div className="services-header">
         <h2 className="about-title">OUR SERVICES</h2>
         <p className="about-subtitle">Tailored luxury for your special moments.</p>
@@ -359,7 +371,7 @@ const Services = () => {
         <div className="divider-line"></div>
       </section>
 
-      {/* 🆕 CORRECTED: Clean Lightbox rendering block utilizing top-level states */}
+      {/* Lightbox Rendering Block */}
       {activeImage && (
         <div 
           className={`lightbox-overlay ${isClosing ? 'closing' : ''}`} 
