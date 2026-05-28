@@ -86,11 +86,11 @@ const Footer = () => {
             <a href="https://www.instagram.com/coffeegroundcabuyao?igsh=MTVubW1wYjJvaHp1Mg==" target="_blank" rel="noreferrer">
               <img src={igIcon} alt="Instagram" className="footer-icon" style={{ width: 24, height: 24 }} />
             </a>
-            <a href="https://www.instagram.com/coffeegroundcabuyao?igsh=MTVubW1wYjJvaHp1Mg==" target="_blank" rel="noreferrer">
-              <img src={tiktokIcon} alt="Instagram" className="footer-icon" style={{ width: 24, height: 24 }} />
+            <a href="https://www.tiktok.com/@coffeeground2023" target="_blank" rel="noreferrer">
+              <img src={tiktokIcon} alt="TikTok" className="footer-icon" style={{ width: 24, height: 24 }} />
             </a>
-            <a href="https://www.instagram.com/coffeegroundcabuyao?igsh=MTVubW1wYjJvaHp1Mg==" target="_blank" rel="noreferrer">
-              <img src={threadsIcon} alt="Instagram" className="footer-icon" style={{ width: 24, height: 24 }} />
+            <a href="https://www.threads.com/@coffeegroundcabuyao" target="_blank" rel="noreferrer">
+              <img src={threadsIcon} alt="Threads" className="footer-icon" style={{ width: 24, height: 24 }} />
             </a>
           </div>
           <p className="footer-phone flex items-center gap-2">
