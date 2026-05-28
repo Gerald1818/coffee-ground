@@ -737,24 +737,31 @@ h1, h2, h3, h4, .logo {
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
   line-height: 1.1;
 }
+/* ─── Normal Divider Fix ─── */
 .normal-divider {
-  background: rgba(170, 117, 19, 0.35);
-  width: 70%;
+  display: block;          
+  width: 85%;              /* Increased from 60% to 85% to make it significantly wider */
+  max-width: 600px;        /* Higher limit so it can stretch beautifully on wide desktop screens */
   height: 1px;
-  position: center;
-  margin: 1.5rem auto; /* 0.8rem top/bottom, auto left/right */
+  background: rgba(170, 117, 19, 0.35); 
+  margin: 1.5rem auto !important; 
+  padding: 0;              
   border: none;
-}
-/* Solid line right after title — not gradient, solid visible rule */
-.matcha-divider {
-  background: rgba(180, 210, 140, 0.35);
-  width: 70%;
-  height: 1px;
-  position: center;
-  margin: 1.5rem auto; /* 0.8rem top/bottom, auto left/right */
-  border: none;
+  clear: both;             
 }
 
+/* ─── Matcha Divider Fix ─── */
+.matcha-divider {
+  display: block;          
+  width: 85%;              /* Increased from 60% to 85% to match the normal divider length */
+  max-width: 600px;        
+  height: 1px;
+  background-color: #809c76; 
+  margin: 1.5rem auto !important; 
+  padding: 0;              
+  border: none;
+  clear: both;
+}
 /* Subsection label below divider */
 .matcha-subtitle {
   font-family: var(--font-heading);
