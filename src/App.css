@@ -739,16 +739,18 @@ h1, h2, h3, h4, .logo {
 }
 .normal-divider {
   background: rgba(170, 117, 19, 0.35);
-  width: 80%;
+  width: 70%;
   height: 1px;
+  position: center;
   margin: 1.5rem auto; /* 0.8rem top/bottom, auto left/right */
   border: none;
 }
 /* Solid line right after title — not gradient, solid visible rule */
 .matcha-divider {
   background: rgba(180, 210, 140, 0.35);
-  width: 90%;
+  width: 70%;
   height: 1px;
+  position: center;
   margin: 1.5rem auto; /* 0.8rem top/bottom, auto left/right */
   border: none;
 }
@@ -1198,7 +1200,7 @@ h1, h2, h3, h4, .logo {
   }
 
   .app-title {
-    font-size: 1.4rem;
+    font-size: 1rem;
     letter-spacing: 2px;
   }
 
