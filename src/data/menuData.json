@@ -23,7 +23,7 @@
         { "name": "Breve", "price": 35 },
         { "name": "Milk", "price": 35 },
         { "name": "Syrup", "price": 35 },
-        { "name": "Sauce", "price": 35 },
+        { "name": "Sauce", "price": 55 },
         { "name": "Extra Shot", "price": 40 },
         { "name": "Coffee Jelly", "price": 35 }
       ]

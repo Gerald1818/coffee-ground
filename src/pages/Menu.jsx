@@ -447,7 +447,6 @@ const Menu = () => {
           <div className="matcha-arch-card">
             <h2 className="matcha-title">Matcha Series</h2>
             <div className="matcha-divider" />
-            <p className="matcha-subtitle">Signature Matcha Drinks</p>
             <MatchaTable data={matchaSeries} />
             <MatchaFooter
               iceLevel={matchaSeries.iceLevel}
