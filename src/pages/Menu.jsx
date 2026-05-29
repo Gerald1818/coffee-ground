@@ -143,7 +143,7 @@ const PastaSection = ({ data }) => (
 const AllDayBreakfastSection = ({ data }) => (
   <div className="app-section">
     <div className="app-arch-card">
-      <h2 className="app-title" style={{ fontSize: '2.5rem', letterSpacing: '0.1em' }}>
+      <h2 className="app-title" style={{ fontSize: '2rem', letterSpacing: '0.1em' }}>
         {data.title}
       </h2>
       <div className="normal-divider" />

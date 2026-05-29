@@ -436,7 +436,7 @@ h1, h2, h3, h4, .logo {
 /* --- Section Typography Headers --- */
 .menu-section-header.arched-text {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--parchment);
   text-align: center;
   text-transform: uppercase;
@@ -603,7 +603,7 @@ h1, h2, h3, h4, .logo {
 ──────────────────────────────────────────── */
 .menu-section-header.arched-text {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   color: var(--parchment);
   text-align: center;
   text-transform: uppercase;
@@ -727,7 +727,7 @@ h1, h2, h3, h4, .logo {
 /* Title */
 .matcha-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3.5vw, 3rem); /* clamped tighter so it never overflows arch */
+  font-size: clamp(1.6rem, 3.5vw, 3rem); /* clamped tighter so it never overflows arch */
   color: #d4e8b0;
   text-align: center;
   text-transform: uppercase;
@@ -1141,7 +1141,7 @@ h1, h2, h3, h4, .logo {
   }
 
   .matcha-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
     letter-spacing: 2px;
     line-height: 1.2;
   }
@@ -1207,7 +1207,7 @@ h1, h2, h3, h4, .logo {
   }
 
   .app-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
     letter-spacing: 2px;
   }
 
@@ -2402,7 +2402,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     FOOTER
 ──────────────────────────────────────────── */
 .main-footer {
-  padding: 3.5rem 5% 2rem 5%;
+  padding: 3rem 5% 2rem 5%;
   border-top: 1px solid var(--glass-border);
   background: rgba(16, 9, 5, 0.96);
   backdrop-filter: blur(12px);
@@ -2577,7 +2577,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   .logo {
-    font-size: 1.45rem;
+    font-size: 2rem;
     width: 100%;
     text-align: center;
   }
