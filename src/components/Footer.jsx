@@ -15,8 +15,6 @@ const Footer = () => {
     try {
       await navigator.clipboard.writeText(emailAddress);
       setCopied(true);
-      
-      // Reset the "Copied!" message after 2 seconds
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
@@ -27,24 +25,35 @@ const Footer = () => {
     <footer className="main-footer">
       <div className="footer-container">
         
-        {/* Left Column: Email & Copyright */}
-        <div className="footer-left-col">
-          {/* Clickable email container */}
-          <p 
+        {/* Column 1: Brand/Identity */}
+        <div className="footer-col brand-col">
+          <h2 className="footer-logo">Coffee Ground</h2>
+          <hr className="footer-divider" />
+          <p className="footer-subtitle">Cabuyao Branch</p>
+        </div>
+        
+        {/* Column 2: Site Map (Text-only list) */}
+        <div className="footer-col sitemap-col">
+          <h3>SITE MAP</h3>
+          <ul>
+            <li>About</li>
+            <li>Products</li>
+            <li>Services</li>
+            <li>Gallery</li>
+            <li>Contact</li>
+            <li>Support</li>
+          </ul>
+        </div>
+        
+        {/* Column 3: Actions & Contacts */}
+        <div className="footer-col actions-col">
+          {/* Email Box Action */}
+          <div 
             onClick={handleCopyEmail} 
-            style={{ 
-              cursor: 'pointer', 
-              userSelect: 'none',
-              display: 'inline-flex', // Align items nicely in a row
-              alignItems: 'center',
-              gap: '6px' // Small gap between text and icon
-            }}
             title="Click to copy email"
-            className="footer-email"
+            className="footer-email-box"
           >
-            <span>{emailAddress}</span>
-            
-            {/* SVG Copy Icon */}
+            <span className="email-text">{emailAddress}</span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="16" 
@@ -55,50 +64,47 @@ const Footer = () => {
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round"
-              style={{ opacity: 0.7, verticalAlign: 'middle' }}
+              className="copy-icon"
             >
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
-
-            {/* Success message */}
-            {copied && (
-              <span style={{ color: '#C8873F', fontSize: '0.85em', marginLeft: '4px' }}>
-                (Copied!)
-              </span>
-            )}
-          </p>
-
-          <p className="footer-copyright">
-            ©2023 Coffee Ground Cabuyao. All Rights Reserved.
-          </p>
-        </div>
-        
-        {/* Right Column: Social Links & Phone */}
-        <div className="footer-right-col">
-          <div className="social-links">
-            <a href="https://r.grab.com/g/6-20260516_194337_0ab2212a6d0e4bf3b55a6278dd59f166_MEXMPS-2-C73EHAJ2JJEUL2" target="_blank" rel="noreferrer">
-              <img src={grabIcon} alt="Grab" className="footer-icon" style={{ width: 24, height: 24 }} />
-            </a>
-            <a href="https://www.facebook.com/CABLOCALCAFFEINEDEALER" target="_blank" rel="noreferrer">
-              <img src={fbIcon} alt="Facebook" className="footer-icon" style={{ width: 24, height: 24 }} />
-            </a>
-            <a href="https://www.instagram.com/coffeegroundcabuyao?igsh=MTVubW1wYjJvaHp1Mg==" target="_blank" rel="noreferrer">
-              <img src={igIcon} alt="Instagram" className="footer-icon" style={{ width: 24, height: 24 }} />
-            </a>
-            <a href="https://www.tiktok.com/@coffeeground2023" target="_blank" rel="noreferrer">
-              <img src={tiktokIcon} alt="TikTok" className="footer-icon" style={{ width: 24, height: 24 }} />
-            </a>
-            <a href="https://www.threads.com/@coffeegroundcabuyao" target="_blank" rel="noreferrer">
-              <img src={threadsIcon} alt="Threads" className="footer-icon" style={{ width: 24, height: 24 }} />
-            </a>
+            {copied && <span className="copied-toast">(Copied!)</span>}
           </div>
-          <p className="footer-phone flex items-center gap-2">
+
+          {/* Phone Information */}
+          <p className="footer-phone">
             <Phone size={16} /> 
             <a href="tel:09562188268">0956-218-8268</a>
           </p>
+          
+          {/* Social Media Links */}
+          <div className="social-links">
+            <a href="https://r.grab.com/g/6-20260516_194337..." target="_blank" rel="noreferrer">
+              <img src={grabIcon} alt="Grab" className="footer-icon" />
+            </a>
+            <a href="https://www.facebook.com/..." target="_blank" rel="noreferrer">
+              <img src={fbIcon} alt="Facebook" className="footer-icon" />
+            </a>
+            <a href="https://www.instagram.com/..." target="_blank" rel="noreferrer">
+              <img src={igIcon} alt="Instagram" className="footer-icon" />
+            </a>
+            <a href="https://www.tiktok.com/..." target="_blank" rel="noreferrer">
+              <img src={tiktokIcon} alt="TikTok" className="footer-icon" />
+            </a>
+            <a href="https://www.threads.com/..." target="_blank" rel="noreferrer">
+              <img src={threadsIcon} alt="Threads" className="footer-icon" />
+            </a>
+          </div>
         </div>
 
+      </div>
+
+      {/* Global Bottom Copyright Row */}
+      <div className="footer-bottom">
+        <p className="footer-copyright">
+          Copyright © 2023 Coffee Ground Cabuyao. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
