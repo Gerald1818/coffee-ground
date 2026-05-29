@@ -90,7 +90,7 @@ const Footer = () => {
               <img src={igIcon} alt="Instagram" className="footer-icon" />
             </a>
             <a href="https://www.tiktok.com/..." target="_blank" rel="noreferrer">
-              <img src={tiktokIcon} alt="TikTok" className="footer-icon" />
+              <img src={tiktokIcon} alt="TikTok" className="footer-icon tiktok-fix" />
             </a>
             <a href="https://www.threads.com/..." target="_blank" rel="noreferrer">
               <img src={threadsIcon} alt="Threads" className="footer-icon" />

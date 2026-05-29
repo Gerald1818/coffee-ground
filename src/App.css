@@ -2422,7 +2422,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   text-align: center;
 }
-
+/* Keeps the TikTok image from turning into a solid circle */
+.footer-icon.tiktok-fix {
+  filter: none; /* Disables the color inversion filter */
+  mix-blend-mode: lighten; /* Drops out dark backgrounds if necessary */
+  border-radius: 50%; /* Smooths the icon container edges */
+}
 /* ─── COLUMN 1: BRAND IDENTITY ─── */
 .brand-col .footer-logo {
   font-family: var(--font-heading);
