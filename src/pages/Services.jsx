@@ -368,7 +368,6 @@ const Services = () => {
             </div>
           </div>
         </section>
-        <div className="divider-line"></div>
       </section>
 
       {/* Lightbox Rendering Block */}
