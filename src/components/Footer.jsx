@@ -80,19 +80,19 @@ const Footer = () => {
           
           {/* Social Media Links */}
           <div className="social-links">
-            <a href="https://r.grab.com/g/6-20260516_194337..." target="_blank" rel="noreferrer">
+            <a href="https://r.grab.com/g/6-20260516_194337_0ab2212a6d0e4bf3b55a6278dd59f166_MEXMPS-2-C73EHAJ2JJEUL2" target="_blank" rel="noreferrer">
               <img src={grabIcon} alt="Grab" className="footer-icon" />
             </a>
-            <a href="https://www.facebook.com/..." target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/CABLOCALCAFFEINEDEALER" target="_blank" rel="noreferrer">
               <img src={fbIcon} alt="Facebook" className="footer-icon" />
             </a>
-            <a href="https://www.instagram.com/..." target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/coffeegroundcabuyao?igsh=MTVubW1wYjJvaHp1Mg==" target="_blank" rel="noreferrer">
               <img src={igIcon} alt="Instagram" className="footer-icon" />
             </a>
-            <a href="https://www.tiktok.com/..." target="_blank" rel="noreferrer">
+            <a href="https://www.tiktok.com/@coffeeground2023" target="_blank" rel="noreferrer">
               <img src={tiktokIcon} alt="TikTok" className="footer-icon tiktok-fix" />
             </a>
-            <a href="https://www.threads.com/..." target="_blank" rel="noreferrer">
+            <a href="https://www.threads.com/@coffeegroundcabuyao" target="_blank" rel="noreferrer">
               <img src={threadsIcon} alt="Threads" className="footer-icon" />
             </a>
           </div>
