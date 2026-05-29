@@ -160,7 +160,7 @@ const About = () => {
           </div>
 
           <div className="location-info">
-            <p className="address-text">📍<a href="https://maps.app.goo.gl/Ud1MGwd7xxaYoQ7VA">Coffee Ground Cabuyao</a></p>
+            <p className="address-text">📍<a href="https://maps.app.goo.gl/Ud1MGwd7xxaYoQ7VA" target="_blank" rel="noreferrer">Coffee Ground Cabuyao</a></p>
             <p className="address-subtext">74CF+8FQ, Cabuyao City, Laguna, Philippines</p>
             <p className="coordinates-text">Coordinates: 14.2750°N, 121.1180°E</p>
           </div>

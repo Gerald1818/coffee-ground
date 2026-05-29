@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Smartphone } from 'lucide-react';
-// Import your custom image icons from the assets folder
+import { Smartphone, MapPin } from 'lucide-react';
+
+// Import custom image icons
 import fbIcon from '../assets/fb.png';
 import igIcon from '../assets/ig.png';
 import grabIcon from '../assets/grab.png';
@@ -25,60 +26,49 @@ const Footer = () => {
     <footer className="main-footer">
       <div className="footer-container">
         
-        {/* Column 1: Brand/Identity */}
-        <div className="footer-col brand-col">
-          <h2 className="footer-logo">Coffee Ground</h2>
-          <hr className="footer-divider" />
-          <p className="footer-subtitle">Cabuyao Branch</p>
-        </div>
-        
-        {/* Column 2: Site Map (Text-only list) */}
-        <div className="footer-col sitemap-col">
-          <h3>SITE MAP</h3>
-          <ul>
-            <li>About</li>
-            <li>Products</li>
-            <li>Services</li>
-            <li>Gallery</li>
-            <li>Contact</li>
-            <li>Support</li>
-          </ul>
-        </div>
-        
-        {/* Column 3: Actions & Contacts */}
-        <div className="footer-col actions-col">
-          {/* Email Box Action */}
-          <div 
-            onClick={handleCopyEmail} 
+        {/* Left Column: Email & Address */}
+        <div className="footer-left-col">
+          <p
+            onClick={handleCopyEmail}
             title="Click to copy email"
-            className="footer-email-box"
+            className="footer-email"
+            style={{ cursor: 'pointer', userSelect: 'none', marginBottom: '4px' }}
           >
-            <span className="email-text">{emailAddress}</span>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
+            <span>{emailAddress}</span>
+            
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
-              className="copy-icon"
+              style={{ opacity: 0.6 }}
             >
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
-            {copied && <span className="copied-toast">(Copied!)</span>}
-          </div>
 
-          {/* Phone Information */}
-          <p className="footer-phone">
-            <Smartphone size={16} /> 
-            <a href="tel:09562188268">0956-218-8268</a>
+            {copied && (
+              <span style={{ color: '#C8873F', fontSize: '0.85em', marginLeft: '4px', fontStyle: 'normal' }}>
+                (Copied!)
+              </span>
+            )}
           </p>
-          
-          {/* Social Media Links */}
+
+          <p className="footer-address">
+            <MapPin size={14} style={{ opacity: 0.6, flexShrink: 0 }} />
+            <a href="https://maps.app.goo.gl/Ud1MGwd7xxaYoQ7VA" target="_blank" rel="noreferrer">
+              74CF+8FQ, Cabuyao City, Laguna, Philippines
+            </a>
+          </p>
+        </div>
+        
+        {/* Right Column: Social Links & Phone */}
+        <div className="footer-right-col">
           <div className="social-links">
             <a href="https://r.grab.com/g/6-20260516_194337_0ab2212a6d0e4bf3b55a6278dd59f166_MEXMPS-2-C73EHAJ2JJEUL2" target="_blank" rel="noreferrer">
               <img src={grabIcon} alt="Grab" className="footer-icon" />
@@ -90,21 +80,26 @@ const Footer = () => {
               <img src={igIcon} alt="Instagram" className="footer-icon" />
             </a>
             <a href="https://www.tiktok.com/@coffeeground2023" target="_blank" rel="noreferrer">
-              <img src={tiktokIcon} alt="TikTok" className="footer-icon tiktok-fix" />
+              <img src={tiktokIcon} alt="TikTok" className="footer-icon" />
             </a>
             <a href="https://www.threads.com/@coffeegroundcabuyao" target="_blank" rel="noreferrer">
               <img src={threadsIcon} alt="Threads" className="footer-icon" />
             </a>
           </div>
+          
+          <p className="footer-phone">
+            <Smartphone size={14} style={{ opacity: 0.7 }} />
+            <a href="tel:09562188268">0956-218-8268</a>
+          </p>
         </div>
 
-      </div>
+        {/* Center Bottom Row: Copyright Block */}
+        <div className="footer-bottom-row">
+          <p className="footer-copyright">
+            ©2023 Coffee Ground Cabuyao. All Rights Reserved.
+          </p>
+        </div>
 
-      {/* Global Bottom Copyright Row */}
-      <div className="footer-bottom">
-        <p className="footer-copyright">
-          Copyright © 2023 Coffee Ground Cabuyao. All Rights Reserved.
-        </p>
       </div>
     </footer>
   );
