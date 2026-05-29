@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone } from 'lucide-react';
+import { Smartphone } from 'lucide-react';
 // Import your custom image icons from the assets folder
 import fbIcon from '../assets/fb.png';
 import igIcon from '../assets/ig.png';
@@ -74,7 +74,7 @@ const Footer = () => {
 
           {/* Phone Information */}
           <p className="footer-phone">
-            <Phone size={16} /> 
+            <Smartphone size={16} /> 
             <a href="tel:09562188268">0956-218-8268</a>
           </p>
           
