@@ -162,7 +162,8 @@
       { "name": "Tomato Arrabiata", "desc": "Spicy, garlicky tomato pasta", "price": 260 },
       { "name": "Ragu Bolognese", "desc": "Rich, slow-cooked meat sauce", "price": 250 },
       { "name": "Filipino Style Spaghetti", "desc": "Sweet, savory meat and hotdog sauce pasta", "price": 250 },
-      { "name": "Pasta Al Funghi", "desc": "Earthy, creamy mushroom pasta", "price": 320 }
+      { "name": "Pasta Al Funghi", "desc": "Earthy, creamy mushroom pasta", "price": 320 },
+      { "name": "Creamy Pomodoro", "desc": "Silky tomato cream", "price": 320 }
     ],
     "addOns": {
       "title": "Add-Ons",
