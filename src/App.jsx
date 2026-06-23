@@ -7,10 +7,12 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Menu from './pages/Menu'; 
 
+// Import your supabase client (make sure you created this file!)
+import { supabase } from './supabaseClient'; 
+
 import './App.css';
 
 // ─── GLOBAL SCROLL TO TOP HELPER ─────────────────────────────────────
-// This component listens to route path changes and forces a top reset.
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
@@ -18,17 +20,41 @@ const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'instant' // Resets layout position instantly without smooth transitions
+      behavior: 'instant' 
     });
-  }, [pathname]); // Fires every single time the URL pathname string shifts
+  }, [pathname]); 
 
   return null;
 };
 
+// ─── MAIN APP COMPONENT ──────────────────────────────────────────────
 function App() {
+  
+  // ─── SILENT VISITOR COUNTER ───
+  useEffect(() => {
+    // Check sessionStorage so refreshing doesn't spike your count artificially
+    const hasVisited = sessionStorage.getItem('hasVisited');
+
+    if (!hasVisited) {
+      // Trigger the PostgreSQL RPC function we created in Supabase
+      supabase.rpc('increment_visitor_count')
+        .then(({ error }) => {
+          if (!error) {
+            // Drop a cookie/token in session storage so they aren't recounted until they close the tab
+            sessionStorage.setItem('hasVisited', 'true');
+          } else {
+            console.error('Supabase RPC Error:', error);
+          }
+        })
+        .catch(err => {
+          // Fails completely silently in production so your users have a seamless experience
+          console.error('Silent counter issue:', err);
+        });
+    }
+  }, []); // Runs exactly once when the application boots up
+
   return (
     <Router>
-      {/* ScrollToTop must sit inside Router to successfully read useLocation context */}
       <ScrollToTop /> 
       
       <Navbar />
