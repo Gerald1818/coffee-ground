@@ -1,31 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-// Added BookOpen for the Menu icon
-import { LayoutDashboard, Info, Coffee, BookOpen } from 'lucide-react';
-
+import { NavLink } from 'react-router-dom'; 
+// Replaced Coffee with Store to match image_16bb3d.png
+import { LayoutDashboard, Info, Store, BookOpen } from 'lucide-react';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">COFFEE GROUND</div>
+      <div className="logo-container">
+        <span className="logo">COFFEE GROUND</span>
+      </div>
       <div className="nav-links">
-        <Link to="/" className="nav-item">
-          <LayoutDashboard className="nav-icon" size={20} />
+        <NavLink to="/" className="nav-item" end>
+          <LayoutDashboard className="nav-icon" size={18} />
           <span className="nav-text">Dashboard</span>
-        </Link>
-        <Link to="/about" className="nav-item">
-          <Info className="nav-icon" size={20} />
+        </NavLink>
+        
+        <NavLink to="/about" className="nav-item">
+          <Info className="nav-icon" size={18} />
           <span className="nav-text">About</span>
-        </Link>
-        {/* New Menu Link */}
-        <Link to="/menu" className="nav-item">
-          <BookOpen className="nav-icon" size={20} />
+        </NavLink>
+        
+        <NavLink to="/menu" className="nav-item">
+          <BookOpen className="nav-icon" size={18} />
           <span className="nav-text">Menu</span>
-        </Link>
-        <Link to="/services" className="nav-item">
-          <Coffee className="nav-icon" size={20} />
+        </NavLink>
+        
+        <NavLink to="/services" className="nav-item">
+          {/* Updated to use the Store icon */}
+          <Store className="nav-icon" size={18} />
           <span className="nav-text">Services</span>
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );
