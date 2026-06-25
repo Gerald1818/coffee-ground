@@ -1531,7 +1531,7 @@ h1, h2, h3, h4, .logo {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   color: var(--linen);
   letter-spacing: 3px;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -1564,7 +1564,7 @@ h1, h2, h3, h4, .logo {
 
 .concept-list {
   list-style: none;
-  padding: 0;
+  padding: 10;
   margin: -10px;
   display: flex;
   flex-direction: column;
