@@ -232,17 +232,22 @@ h1, h2, h3, h4, .logo {
 }
 
 /* ────────────────────────────────────────────
-   HERO
+   HERO (UPDATED)
 ──────────────────────────────────────────── */
 .hero {
-  height: 100vh;
+  /* Instead of 100vh, we account for the dynamic mobile navbar height */
+  min-height: calc(100vh - 140px); 
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 10%;
+  justify-content: center; /* Center horizontally for modern mobile view */
+  padding: 0 20px; /* Swept down from 10% to prevent narrow squishing */
+  box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  
+  /* Pushes layout down below the fixed header on mobile devices */
+  margin-top: 140px; 
 }
 
 .video-bg {
@@ -255,7 +260,7 @@ h1, h2, h3, h4, .logo {
 }
 
 /* ────────────────────────────────────────────
-   GLASSMORPHISM CONTAINERS
+   GLASSMORPHISM CONTAINERS (UPDATED)
 ──────────────────────────────────────────── */
 .hero-text,
 .about-container {
@@ -264,18 +269,41 @@ h1, h2, h3, h4, .logo {
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--glass-border);
-  padding: clamp(2.5rem, 5vw, 4.5rem);
-  border-radius: 40px;
+  
+  /* Made paddings dynamic so it automatically shrinks on phone profiles */
+  padding: clamp(1.5rem, 6vw, 3.5rem); 
+  border-radius: 28px; /* Slightly sleeker modern radius for mobile */
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.60),
     0  0  80px var(--glow-caramel),
     inset 0 1px 0 rgba(216, 211, 179, 0.12);
-  max-width: 800px;
-  margin: 40px auto;
+  
+  max-width: 500px; /* Reduced for optimal presentation on narrow viewports */
+  width: 100%;
+  margin: 20px auto;
   animation: fadeUp 0.9s ease-out both;
   position: relative;
   overflow: hidden;
-  
+}
+
+/* Fluid Responsive Typography for Card Titles */
+.hero-text h1 {
+  font-size: clamp(1.6rem, 6vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.hero-tagline {
+  font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+  margin-bottom: 24px;
+}
+
+/* Optional Button optimization to make sure they fit alongside padding */
+.hero-btn, .hero-btn2 {
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  margin: 6px;
+  border-radius: 50px;
 }
 
 /* warm top-edge accent line */
@@ -287,6 +315,21 @@ h1, h2, h3, h4, .logo {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--caramel), transparent);
   opacity: 0.6;
+}
+
+/* ────────────────────────────────────────────
+   DESKTOP ADJUSTMENTS (REVERTS MARGINS)
+──────────────────────────────────────────── */
+@media (min-width: 769px) {
+  .hero {
+    min-height: 100vh;
+    margin-top: 0;
+    padding: 0 10%;
+    justify-content: flex-start;
+  }
+  .hero-text {
+    max-width: 800px;
+  }
 }
 
 /* About header image container */
@@ -588,7 +631,7 @@ h1, h2, h3, h4, .logo {
   background-color: var(--espresso);
   padding: 120px 24px 80px;
   box-sizing: border-box;
-  margin-top: 80px;
+  margin-top: 70px;
   position: relative;
 }
 
@@ -1677,13 +1720,6 @@ h1, h2, h3, h4, .logo {
   text-align: center;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.40);
   transition: all 0.4s ease;
-}
-
-.mission-card:hover,
-.vision-card:hover {
-  border-color: var(--caramel);
-  transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.50), 0 0 40px rgba(200, 135, 63, 0.25);
 }
 
 .mission-vision-title {
